@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora ISR - María Fabiola Calvillo Rocha</title>
+    <meta name="description" content="Calculadora gratuita de ISR (Impuesto Sobre la Renta) para personas físicas y morales. Herramienta fiscal interactiva.">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h2>María Fabiola Calvillo Rocha</h2>
+                <span>Contadora Pública</span>
+            </div>
+            <div class="nav-back">
+                <a href="../index.html" class="btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Volver al inicio
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main style="padding-top: 100px;">
+        <section class="section">
+            <div class="container">
+                <h1>Calculadora de ISR</h1>
+                <p class="hero-subtitle">Calcula tu Impuesto Sobre la Renta de forma rápida y sencilla</p>
+
+                <div class="calculadora-container">
+                    <div class="calculadora-form">
+                        <h2>Datos para el Cálculo</h2>
+                        <form id="isr-calculator">
+                            <div class="form-group">
+                                <label for="regimen">Régimen Fiscal</label>
+                                <select id="regimen" required>
+                                    <option value="">Seleccionar régimen</option>
+                                    <option value="fisica">Persona Física</option>
+                                    <option value="moral">Persona Moral</option>
+                                    <option value="incorporacion">Régimen de Incorporación Fiscal</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ingresos">Ingresos Anuales</label>
+                                <input type="number" id="ingresos" placeholder="Ejemplo: 500000" step="0.01" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="deducciones">Deducciones Totales</label>
+                                <input type="number" id="deducciones" placeholder="Ejemplo: 100000" step="0.01">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="periodo">Periodo</label>
+                                <select id="periodo" required>
+                                    <option value="">Seleccionar periodo</option>
+                                    <option value="mensual">Mensual</option>
+                                    <option value="anual">Anual</option>
+                                </select>
+                            </div>
+
+                            <button type="submit" class="btn-primary">
+                                <i class="fas fa-calculator"></i> Calcular ISR
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="calculadora-resultado">
+                        <h2>Resultado del Cálculo</h2>
+                        <div id="resultado" class="resultado-display">
+                            <p>Complete el formulario para ver el resultado</p>
+                        </div>
+
+                        <div class="importante">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Importante</h3>
+                            <ul>
+                                <li>Este cálculo es aproximado y con fines informativos</li>
+                                <li>Los resultados pueden variar según circunstancias específicas</li>
+                                <li>Consulte con un contador para cálculos oficiales</li>
+                                <li>Las tarifas pueden cambiar según la legislación vigente</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <h2>¿Necesitas Asesoría Personalizada?</h2>
+                    <p>Para cálculos precisos y asesoría fiscal profesional, agenda una consulta conmigo.</p>
+                    <div class="cta-buttons">
+                        <a href="../index.html#contacto" class="btn-primary">Agendar Consulta</a>
+                        <a href="https://wa.me/524773868927" class="btn-secondary" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('isr-calculator').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const regimen = document.getElementById('regimen').value;
+            const ingresos = parseFloat(document.getElementById('ingresos').value) || 0;
+            const deducciones = parseFloat(document.getElementById('deducciones').value) || 0;
+            const periodo = document.getElementById('periodo').value;
+            
+            const baseGravable = ingresos - deducciones;
+            let isr = 0;
+            let tasa = 0;
+            
+            // Cálculo simplificado (tarifas 2024 aproximadas)
+            if (regimen === 'fisica') {
+                if (baseGravable <= 125900) {
+                    tasa = 1.92;
+                } else if (baseGravable <= 212500) {
+                    tasa = 6.40;
+                } else if (baseGravable <= 319400) {
+                    tasa = 10.88;
+                } else if (baseGravable <= 407200) {
+                    tasa = 16.00;
+                } else if (baseGravable <= 814400) {
+                    tasa = 21.36;
+                } else if (baseGravable <= 1089600) {
+                    tasa = 23.52;
+                } else if (baseGravable <= 1638400) {
+                    tasa = 30.00;
+                } else {
+                    tasa = 35.00;
+                }
+            } else if (regimen === 'moral') {
+                tasa = 30.00;
+            } else if (regimen === 'incorporacion') {
+                tasa = 1.00; // Primer año
+            }
+            
+            isr = baseGravable * (tasa / 100);
+            
+            if (periodo === 'mensual') {
+                isr = isr / 12;
+            }
+            
+            const resultado = document.getElementById('resultado');
+            resultado.innerHTML = `
+                <div class="resultado-item">
+                    <h3>Base Gravable</h3>
+                    <p class="amount">$${baseGravable.toLocaleString('es-MX', {minimumFractionDigits: 2})}</p>
+                </div>
+                <div class="resultado-item">
+                    <h3>Tasa Aplicada</h3>
+                    <p class="rate">${tasa}%</p>
+                </div>
+                <div class="resultado-item highlight">
+                    <h3>ISR ${periodo === 'mensual' ? 'Mensual' : 'Anual'}</h3>
+                    <p class="amount final">$${isr.toLocaleString('es-MX', {minimumFractionDigits: 2})}</p>
+                </div>
+            `;
+        });
+    </script>
+
+    <style>
+        .calculadora-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+        
+        .calculadora-form, .calculadora-resultado {
+            background: var(--background-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .resultado-display {
+            min-height: 200px;
+            background: var(--background-alt);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        .resultado-item {
+            margin: 1rem 0;
+            padding: 1rem;
+            border-left: 4px solid var(--accent-color);
+            background: white;
+        }
+        
+        .resultado-item.highlight {
+            border-left-color: var(--success-color);
+            background: linear-gradient(135deg, var(--success-color), var(--accent-color));
+            color: white;
+        }
+        
+        .amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 0;
+        }
+        
+        .amount.final {
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .rate {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--success-color);
+            margin: 0;
+        }
+        
+        .importante {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: var(--border-radius);
+        }
+        
+        .importante h3 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+        
+        .importante ul {
+            color: #856404;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .calculadora-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendar Cita - María Fabiola Calvillo Rocha</title>
+    <meta name="description" content="Agenda una cita con la Contadora Pública María Fabiola Calvillo Rocha. Consultas presenciales y virtuales disponibles.">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h2>María Fabiola Calvillo Rocha</h2>
+                <span>Contadora Pública</span>
+            </div>
+            <div class="nav-back">
+                <a href="../index.html" class="btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Volver al inicio
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main style="padding-top: 100px;">
+        <section class="section">
+            <div class="container">
+                <h1>Agendar Cita</h1>
+                <p class="hero-subtitle">Selecciona el tipo de consulta y agenda tu cita de manera fácil y rápida</p>
+
+                <div class="citas-container">
+                    <div class="servicios-cita">
+                        <h2>Tipos de Consulta</h2>
+                        <div class="servicios-cita-grid">
+                            <div class="servicio-cita-card" data-servicio="consulta-inicial">
+                                <div class="servicio-precio">
+                                    <span class="precio-label">Consulta Inicial</span>
+                                    <span class="precio">GRATIS</span>
+                                    <span class="duracion">30 min</span>
+                                </div>
+                                <ul>
+                                    <li>Evaluación de necesidades</li>
+                                    <li>Análisis de situación fiscal</li>
+                                    <li>Propuesta de servicios</li>
+                                    <li>Presencial o virtual</li>
+                                </ul>
+                                <button class="btn-primary select-service">Seleccionar</button>
+                            </div>
+
+                            <div class="servicio-cita-card" data-servicio="asesoria-fiscal">
+                                <div class="servicio-precio">
+                                    <span class="precio-label">Asesoría Fiscal</span>
+                                    <span class="precio">$800</span>
+                                    <span class="duracion">60 min</span>
+                                </div>
+                                <ul>
+                                    <li>Revisión de obligaciones fiscales</li>
+                                    <li>Optimización de deducciones</li>
+                                    <li>Planeación tributaria</li>
+                                    <li>Resolución de dudas específicas</li>
+                                </ul>
+                                <button class="btn-primary select-service">Seleccionar</button>
+                            </div>
+
+                            <div class="servicio-cita-card" data-servicio="revision-contable">
+                                <div class="servicio-precio">
+                                    <span class="precio-label">Revisión Contable</span>
+                                    <span class="precio">$1,200</span>
+                                    <span class="duracion">90 min</span>
+                                </div>
+                                <ul>
+                                    <li>Revisión de estados financieros</li>
+                                    <li>Análisis de registros contables</li>
+                                    <li>Detección de inconsistencias</li>
+                                    <li>Recomendaciones de mejora</li>
+                                </ul>
+                                <button class="btn-primary select-service">Seleccionar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formulario-cita">
+                        <h2>Datos de la Cita</h2>
+                        <form id="appointment-form">
+                            <div class="form-group">
+                                <label for="servicio-seleccionado">Servicio Seleccionado</label>
+                                <input type="text" id="servicio-seleccionado" readonly placeholder="Selecciona un servicio arriba">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nombre-cita">Nombre Completo *</label>
+                                <input type="text" id="nombre-cita" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email-cita">Email *</label>
+                                <input type="email" id="email-cita" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="telefono-cita">Teléfono *</label>
+                                <input type="tel" id="telefono-cita" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tipo-cita">Modalidad de Consulta *</label>
+                                <select id="tipo-cita" required>
+                                    <option value="">Seleccionar modalidad</option>
+                                    <option value="presencial">Presencial (León, Gto.)</option>
+                                    <option value="virtual">Virtual (Video llamada)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="fecha-cita">Fecha Preferida *</label>
+                                <input type="date" id="fecha-cita" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="hora-cita">Hora Preferida *</label>
+                                <select id="hora-cita" required>
+                                    <option value="">Seleccionar hora</option>
+                                    <option value="09:00">9:00 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="14:00">2:00 PM</option>
+                                    <option value="15:00">3:00 PM</option>
+                                    <option value="16:00">4:00 PM</option>
+                                    <option value="17:00">5:00 PM</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="empresa-cita">Empresa/Organización</label>
+                                <input type="text" id="empresa-cita" placeholder="Opcional">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="motivo-cita">Motivo de la Consulta *</label>
+                                <textarea id="motivo-cita" rows="4" placeholder="Describe brevemente el motivo de tu consulta..." required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="terminos-cita" required>
+                                    <span class="checkmark"></span>
+                                    Acepto los términos y condiciones y la política de privacidad
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn-primary btn-large">
+                                <i class="fas fa-calendar-plus"></i> Agendar Cita
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="info-citas">
+                    <div class="info-card">
+                        <h3><i class="fas fa-clock"></i> Horarios de Atención</h3>
+                        <ul>
+                            <li><strong>Lunes a Viernes:</strong> 9:00 AM - 6:00 PM</li>
+                            <li><strong>Sábados:</strong> 9:00 AM - 2:00 PM</li>
+                            <li><strong>Domingos:</strong> Cerrado</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> Ubicación</h3>
+                        <p>Las citas presenciales se realizan en León, Guanajuato. La dirección exacta se proporcionará al confirmar la cita.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-video"></i> Citas Virtuales</h3>
+                        <p>Las consultas virtuales se realizan por Google Meet o Zoom. Se enviará el enlace por email 24 horas antes.</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-calendar-times"></i> Política de Cancelación</h3>
+                        <p>Las citas pueden cancelarse hasta 24 horas antes sin costo. Cancelaciones tardías están sujetas a una penalización del 50%.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Configurar fecha mínima (hoy)
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('fecha-cita').min = today;
+
+        // Configurar fecha máxima (3 meses desde hoy)
+        const maxDate = new Date();
+        maxDate.setMonth(maxDate.getMonth() + 3);
+        document.getElementById('fecha-cita').max = maxDate.toISOString().split('T')[0];
+
+        // Manejar selección de servicio
+        document.querySelectorAll('.select-service').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = this.closest('.servicio-cita-card');
+                const servicio = card.dataset.servicio;
+                const label = card.querySelector('.precio-label').textContent;
+                
+                // Remover selección anterior
+                document.querySelectorAll('.servicio-cita-card').forEach(c => c.classList.remove('selected'));
+                
+                // Seleccionar actual
+                card.classList.add('selected');
+                
+                // Actualizar formulario
+                document.getElementById('servicio-seleccionado').value = label;
+                
+                // Scroll al formulario
+                document.querySelector('.formulario-cita').scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Validar día de la semana (no domingos)
+        document.getElementById('fecha-cita').addEventListener('change', function() {
+            const selectedDate = new Date(this.value);
+            const dayOfWeek = selectedDate.getDay();
+            
+            if (dayOfWeek === 0) { // Domingo
+                alert('No hay atención los domingos. Por favor seleccione otro día.');
+                this.value = '';
+                return;
+            }
+            
+            // Ajustar horarios para sábado
+            const horaSelect = document.getElementById('hora-cita');
+            const options = horaSelect.querySelectorAll('option');
+            
+            if (dayOfWeek === 6) { // Sábado
+                options.forEach(option => {
+                    if (option.value && option.value >= '14:00') {
+                        option.style.display = 'none';
+                        option.disabled = true;
+                    } else {
+                        option.style.display = 'block';
+                        option.disabled = false;
+                    }
+                });
+            } else {
+                options.forEach(option => {
+                    option.style.display = 'block';
+                    option.disabled = false;
+                });
+            }
+        });
+
+        // Manejar envío del formulario
+        document.getElementById('appointment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Validación
+            if (!document.getElementById('servicio-seleccionado').value) {
+                alert('Por favor seleccione un tipo de consulta.');
+                return;
+            }
+            
+            // Simular envío
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Agendando...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                alert('¡Cita agendada exitosamente! Recibirá un email de confirmación en las próximas horas.');
+                this.reset();
+                document.getElementById('servicio-seleccionado').value = '';
+                document.querySelectorAll('.servicio-cita-card').forEach(c => c.classList.remove('selected'));
+                
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+    </script>
+
+    <style>
+        .citas-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .servicios-cita-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .servicio-cita-card {
+            background: var(--background-color);
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .servicio-cita-card:hover,
+        .servicio-cita-card.selected {
+            border-color: var(--accent-color);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .servicio-cita-card.selected {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(39, 174, 96, 0.1));
+        }
+        
+        .servicio-precio {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .precio-label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .precio {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-bottom: 0.25rem;
+        }
+        
+        .duracion {
+            display: block;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .servicio-cita-card ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .servicio-cita-card li {
+            padding: 0.25rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .servicio-cita-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+        
+        .formulario-cita {
+            background: var(--background-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+        
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .checkbox-label input[type="checkbox"] {
+            margin: 0;
+        }
+        
+        .btn-large {
+            width: 100%;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .info-citas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .info-card {
+            background: var(--background-alt);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        .info-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .info-card h3 i {
+            color: var(--accent-color);
+            margin-right: 0.5rem;
+        }
+        
+        .info-card ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .info-card li {
+            padding: 0.25rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .citas-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .info-citas {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

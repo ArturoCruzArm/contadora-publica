@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://username.github.io/contadora-publica/sitemap.xml
+
+# Disallow private files
+Disallow: /README.md
+Disallow: /.git/
+Disallow: /.github/
+
+# Allow important pages
+Allow: /index.html
+Allow: /privacy-policy.html
+Allow: /styles.css
+Allow: /script.js
+Allow: /site.webmanifest
+
+# Contact information
+# María Fabiola Calvillo Rocha - Contadora Pública
+# León, Guanajuato, México
+# Tel: 477 498 0061
+# Email: alvillofabiola19@gmail.com
