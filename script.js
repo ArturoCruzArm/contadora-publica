@@ -415,9 +415,9 @@ const translations = {
             blog: 'Blog'
         },
         hero: {
-            title: 'Bienvenida a mi práctica profesional',
-            subtitle: 'Soy C.P. María Fabiola Calvillo Rocha, Contadora Pública con Cédula Profesional 11087841, con más de 19 años de experiencia en contabilidad, auditoría y administración pública.',
-            cta1: 'Solicitar Consulta',
+            title: 'C.P. María Fabiola Calvillo Rocha',
+            subtitle: 'Contadora Pública Certificada | Cédula Profesional 11087841',
+            cta1: 'Agendar Cita',
             cta2: 'Conocer Servicios'
         }
     },
@@ -434,9 +434,9 @@ const translations = {
             blog: 'Blog'
         },
         hero: {
-            title: 'Welcome to my professional practice',
-            subtitle: 'I am C.P. María Fabiola Calvillo Rocha, Public Accountant with Professional License 11087841, with over 19 years of experience in accounting, auditing and public administration.',
-            cta1: 'Request Consultation',
+            title: 'C.P. María Fabiola Calvillo Rocha',
+            subtitle: 'Certified Public Accountant | Professional License 11087841',
+            cta1: 'Schedule Appointment',
             cta2: 'Learn About Services'
         }
     }
