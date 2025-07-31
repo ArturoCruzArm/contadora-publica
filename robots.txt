@@ -2,22 +2,33 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://username.github.io/contadora-publica/sitemap.xml
+Sitemap: https://arturocruzarm.github.io/contadora-publica/sitemap.xml
 
-# Disallow private files
+# Disallow private files and development files
 Disallow: /README.md
 Disallow: /.git/
 Disallow: /.github/
+Disallow: /.claude/
+Disallow: /deploy-github.*
+Disallow: /*.md
 
-# Allow important pages
+# Allow important pages and resources
 Allow: /index.html
 Allow: /privacy-policy.html
+Allow: /servicios/
+Allow: /calculadoras/
+Allow: /recursos/
+Allow: /citas/
 Allow: /styles.css
 Allow: /script.js
 Allow: /site.webmanifest
+Allow: /sw.js
+Allow: /images/
 
 # Contact information
-# María Fabiola Calvillo Rocha - Contadora Pública
-# León, Guanajuato, México
-# Tel: 477 498 0061
-# Email: alvillofabiola19@gmail.com
+# C.P. María Fabiola Calvillo Rocha - Contadora Pública Certificada
+# Mercurio de Echeveste 129, Int. 11, Hacienda Echeveste
+# León, Guanajuato, México CP: 37100
+# Tel: 477 498 0061 | WhatsApp: 477 386 8927
+# Email: calvillofabiola19@gmail.com
+# Cédula Profesional: 11087841
