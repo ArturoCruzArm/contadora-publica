@@ -798,3 +798,185 @@ window.addEventListener('online', () => {
 window.addEventListener('offline', () => {
     showNotification('Sin conexión. El sitio seguirá funcionando en modo offline.', 'warning');
 });
+
+// Sistema de Búsqueda Interno
+document.addEventListener('DOMContentLoaded', function() {
+    const searchToggle = document.getElementById('search-toggle');
+    const searchModal = document.getElementById('search-modal');
+    const searchClose = document.querySelector('.search-close');
+    const searchInput = document.getElementById('search-input');
+    const searchResults = document.getElementById('search-results');
+    
+    // Base de datos de contenido para búsqueda
+    const searchData = [
+        {
+            title: 'Servicios para PYMES',
+            description: 'Contabilidad integral, declaraciones fiscales, asesoría tributaria para pequeñas y medianas empresas',
+            type: 'Servicio',
+            url: '/servicios/pymes.html',
+            keywords: 'pymes contabilidad declaraciones fiscal tributaria empresas'
+        },
+        {
+            title: 'Calculadora ISR',
+            description: 'Calcula tu Impuesto Sobre la Renta para personas físicas y morales',
+            type: 'Herramienta',
+            url: '/calculadoras/isr.html',
+            keywords: 'isr impuesto renta calculadora fiscal personas físicas morales'
+        },
+        {
+            title: 'Calculadora IVA',
+            description: 'Calcula el Impuesto al Valor Agregado para productos y servicios',
+            type: 'Herramienta',
+            url: '/calculadoras/iva.html',
+            keywords: 'iva impuesto valor agregado calculadora productos servicios'
+        },
+        {
+            title: 'Calculadora de Nómina',
+            description: 'Calcula salarios, deducciones IMSS, ISR y neto a recibir',
+            type: 'Herramienta',
+            url: '/calculadoras/nomina.html',
+            keywords: 'nomina salarios deducciones imss calculadora empleados'
+        },
+        {
+            title: 'Recursos y Guías',
+            description: 'Documentos descargables, guías fiscales y herramientas para emprendedores',
+            type: 'Recursos',
+            url: '/recursos/guias.html',
+            keywords: 'recursos guías documentos descargar fiscal emprendedores'
+        },
+        {
+            title: 'Agendar Cita',
+            description: 'Programa una consulta presencial o virtual con C.P. María Fabiola',
+            type: 'Servicio',
+            url: '/citas/agendar.html',
+            keywords: 'cita consulta presencial virtual agendar programar'
+        },
+        {
+            title: 'PROFECO - Cobro Coactivo',
+            description: 'Experiencia especializada en cobro persuasivo y coactivo de multas administrativas',
+            type: 'Experiencia',
+            url: '#sobre-mi',
+            keywords: 'profeco cobro coactivo persuasivo multas administrativas'
+        },
+        {
+            title: 'Auditorías',
+            description: 'Auditorías internas y externas, revisión de estados financieros',
+            type: 'Servicio',
+            url: '#servicios',
+            keywords: 'auditorías internas externas estados financieros revisión'
+        },
+        {
+            title: 'Nóminas IMSS',
+            description: 'Procesamiento de nóminas, altas IMSS, sistema SUA',
+            type: 'Servicio',
+            url: '#servicios',
+            keywords: 'nóminas imss sua altas procesamiento empleados'
+        },
+        {
+            title: 'CFDI Validación',
+            description: 'Validación de CFDI ante SAT, manejo de facturación electrónica',
+            type: 'Servicio',
+            url: '#servicios',
+            keywords: 'cfdi validación sat facturación electrónica'
+        }
+    ];
+    
+    // Abrir modal de búsqueda
+    if (searchToggle) {
+        searchToggle.addEventListener('click', function() {
+            searchModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => searchInput.focus(), 300);
+        });
+    }
+    
+    // Cerrar modal
+    function closeSearchModal() {
+        searchModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        searchInput.value = '';
+        searchResults.innerHTML = '<p class="search-hint">Busca servicios contables, calculadoras fiscales, información profesional...</p>';
+    }
+    
+    if (searchClose) {
+        searchClose.addEventListener('click', closeSearchModal);
+    }
+    
+    // Cerrar con ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && searchModal.style.display === 'block') {
+            closeSearchModal();
+        }
+    });
+    
+    // Cerrar al hacer clic fuera del modal
+    searchModal.addEventListener('click', function(e) {
+        if (e.target === searchModal) {
+            closeSearchModal();
+        }
+    });
+    
+    // Funcionalidad de búsqueda
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const query = this.value.trim().toLowerCase();
+            
+            if (query.length < 2) {
+                searchResults.innerHTML = '<p class="search-hint">Escribe al menos 2 caracteres para buscar...</p>';
+                return;
+            }
+            
+            const results = searchData.filter(item => {
+                return item.title.toLowerCase().includes(query) ||
+                       item.description.toLowerCase().includes(query) ||
+                       item.keywords.toLowerCase().includes(query);
+            });
+            
+            if (results.length === 0) {
+                searchResults.innerHTML = `
+                    <div class="search-no-results">
+                        <p>No se encontraron resultados para "<strong>${query}</strong>"</p>
+                        <p class="search-hint">Intenta con otros términos como: servicios, calculadoras, PROFECO, auditorías, nóminas</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            const resultsHTML = results.map(result => `
+                <div class="search-result-item" onclick="navigateToResult('${result.url}')">
+                    <div class="search-result-title">${result.title}</div>
+                    <div class="search-result-description">${result.description}</div>
+                    <span class="search-result-type">${result.type}</span>
+                </div>
+            `).join('');
+            
+            searchResults.innerHTML = resultsHTML;
+        });
+    }
+    
+    // Navegación a resultados
+    window.navigateToResult = function(url) {
+        closeSearchModal();
+        
+        if (url.startsWith('#')) {
+            // Navegación interna (anclas)
+            const element = document.querySelector(url);
+            if (element) {
+                const headerOffset = 100;
+                const elementPosition = element.offsetTop;
+                const offsetPosition = elementPosition - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        } else {
+            // Navegación a otras páginas
+            if (url.startsWith('/')) {
+                url = url.substring(1); // Remover la barra inicial
+            }
+            window.location.href = url;
+        }
+    };
+});

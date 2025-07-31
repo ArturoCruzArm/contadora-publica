@@ -133,13 +133,35 @@
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-actions">
+                <button id="search-toggle" class="search-btn" title="Buscar contenido">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </nav>
     </header>
+
+    <!-- Modal de Búsqueda -->
+    <div id="search-modal" class="search-modal">
+        <div class="search-modal-content">
+            <div class="search-header">
+                <h3>Buscar en el sitio</h3>
+                <button class="search-close">&times;</button>
+            </div>
+            <div class="search-input-container">
+                <input type="text" id="search-input" placeholder="Buscar servicios, calculadoras, información...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <div id="search-results" class="search-results">
+                <p class="search-hint">Busca servicios contables, calculadoras fiscales, información profesional...</p>
+            </div>
+        </div>
+    </div>
 
     <main>
         <!-- Sección de Bienvenida -->

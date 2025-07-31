@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora IVA - María Fabiola Calvillo Rocha</title>
+    <meta name="description" content="Calculadora gratuita de IVA (Impuesto al Valor Agregado) para México. Calcula IVA del 16% y 0% para productos y servicios.">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h2>María Fabiola Calvillo Rocha</h2>
+                <span>Contadora Pública</span>
+            </div>
+            <div class="nav-back">
+                <a href="../index.html" class="btn-secondary">
+                    <i class="fas fa-arrow-left"></i> Volver al inicio
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main style="padding-top: 100px;">
+        <section class="section">
+            <div class="container">
+                <h1>Calculadora de IVA</h1>
+                <p class="hero-subtitle">Calcula el Impuesto al Valor Agregado de productos y servicios en México</p>
+
+                <div class="calculadora-container">
+                    <div class="calculadora-form">
+                        <h2>Datos para el Cálculo</h2>
+                        <form id="iva-calculator">
+                            <div class="form-group">
+                                <label for="tipo-calculo">Tipo de Cálculo</label>
+                                <select id="tipo-calculo" required>
+                                    <option value="">Seleccionar tipo</option>
+                                    <option value="agregar">Agregar IVA (Sin IVA → Con IVA)</option>
+                                    <option value="extraer">Extraer IVA (Con IVA → Sin IVA)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="tasa-iva">Tasa de IVA</label>
+                                <select id="tasa-iva" required>
+                                    <option value="">Seleccionar tasa</option>
+                                    <option value="16">16% (Tasa General)</option>
+                                    <option value="0">0% (Exento)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cantidad">Cantidad</label>
+                                <input type="number" id="cantidad" placeholder="Ejemplo: 1000.00" step="0.01" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="descripcion">Descripción del Producto/Servicio</label>
+                                <input type="text" id="descripcion" placeholder="Opcional: Describe el producto o servicio">
+                            </div>
+
+                            <button type="submit" class="btn-primary">
+                                <i class="fas fa-calculator"></i> Calcular IVA
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="calculadora-resultado">
+                        <h2>Resultado del Cálculo</h2>
+                        <div id="resultado" class="resultado-display">
+                            <p>Complete el formulario para ver el resultado</p>
+                        </div>
+
+                        <div class="importante">
+                            <h3><i class="fas fa-info-circle"></i> Información Importante</h3>
+                            <ul>
+                                <li><strong>Tasa General:</strong> 16% para la mayoría de productos y servicios</li>
+                                <li><strong>Tasa 0%:</strong> Productos de la canasta básica, medicinas, libros</li>
+                                <li><strong>Exentos:</strong> Servicios médicos, educativos, algunos alimentos</li>
+                                <li>Para dudas específicas sobre tasas, consulte con un contador</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ejemplos-iva">
+                    <h2>Ejemplos Comunes</h2>
+                    <div class="ejemplos-grid">
+                        <div class="ejemplo-card">
+                            <h3>16% - Tasa General</h3>
+                            <ul>
+                                <li>Electrónicos</li>
+                                <li>Ropa y calzado</li>
+                                <li>Servicios profesionales</li>
+                                <li>Restaurantes</li>
+                                <li>Automóviles</li>
+                            </ul>
+                        </div>
+                        <div class="ejemplo-card">
+                            <h3>0% - Tasa Cero</h3>
+                            <ul>
+                                <li>Alimentos básicos</li>
+                                <li>Medicinas</li>
+                                <li>Libros y revistas</li>
+                                <li>Exportaciones</li>
+                                <li>Maquinaria agrícola</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <h2>¿Necesitas Asesoría Fiscal Especializada?</h2>
+                    <p>Para consultas específicas sobre tratamiento fiscal y obligaciones de IVA, agenda una consulta profesional.</p>
+                    <div class="cta-buttons">
+                        <a href="../index.html#contacto" class="btn-primary">Agendar Consulta</a>
+                        <a href="https://wa.me/524773868927" class="btn-secondary" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('iva-calculator').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const tipoCalculo = document.getElementById('tipo-calculo').value;
+            const tasaIva = parseFloat(document.getElementById('tasa-iva').value) || 0;
+            const cantidad = parseFloat(document.getElementById('cantidad').value) || 0;
+            const descripcion = document.getElementById('descripcion').value || 'Producto/Servicio';
+            
+            let subtotal = 0;
+            let iva = 0;
+            let total = 0;
+            
+            if (tipoCalculo === 'agregar') {
+                // Agregar IVA: cantidad es sin IVA
+                subtotal = cantidad;
+                iva = subtotal * (tasaIva / 100);
+                total = subtotal + iva;
+            } else if (tipoCalculo === 'extraer') {
+                // Extraer IVA: cantidad es con IVA
+                total = cantidad;
+                subtotal = total / (1 + (tasaIva / 100));
+                iva = total - subtotal;
+            }
+            
+            const resultado = document.getElementById('resultado');
+            resultado.innerHTML = `
+                <div class="calculo-detalle">
+                    <h3>${descripcion}</h3>
+                    <div class="resultado-item">
+                        <h4>Subtotal (Sin IVA)</h4>
+                        <p class="amount">$${subtotal.toLocaleString('es-MX', {minimumFractionDigits: 2})}</p>
+                    </div>
+                    <div class="resultado-item">
+                        <h4>IVA (${tasaIva}%)</h4>
+                        <p class="amount-iva">$${iva.toLocaleString('es-MX', {minimumFractionDigits: 2})}</p>
+                    </div>
+                    <div class="resultado-item highlight">
+                        <h4>Total (Con IVA)</h4>
+                        <p class="amount final">$${total.toLocaleString('es-MX', {minimumFractionDigits: 2})}</p>
+                    </div>
+                </div>
+                <div class="calculo-info">
+                    <p><strong>Operación:</strong> ${tipoCalculo === 'agregar' ? 'IVA agregado' : 'IVA extraído'}</p>
+                    <p><strong>Tasa aplicada:</strong> ${tasaIva}%</p>
+                </div>
+            `;
+        });
+    </script>
+
+    <style>
+        .calculadora-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+        
+        .calculadora-form, .calculadora-resultado {
+            background: var(--background-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .resultado-display {
+            min-height: 200px;
+            background: var(--background-alt);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+        
+        .calculo-detalle h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .resultado-item {
+            margin: 1rem 0;
+            padding: 1rem;
+            border-left: 4px solid var(--accent-color);
+            background: white;
+            border-radius: 4px;
+        }
+        
+        .resultado-item.highlight {
+            border-left-color: var(--success-color);
+            background: linear-gradient(135deg, var(--success-color), var(--accent-color));
+            color: white;
+        }
+        
+        .amount {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 0.5rem 0 0 0;
+        }
+        
+        .amount-iva {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--warning-color);
+            margin: 0.5rem 0 0 0;
+        }
+        
+        .amount.final {
+            color: white;
+            font-size: 1.6rem;
+        }
+        
+        .calculo-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .ejemplos-iva {
+            margin: 3rem 0;
+        }
+        
+        .ejemplos-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .ejemplo-card {
+            background: var(--background-color);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .ejemplo-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .ejemplo-card ul {
+            list-style: none;
+        }
+        
+        .ejemplo-card li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .ejemplo-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        .importante {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: var(--border-radius);
+        }
+        
+        .importante h3 {
+            color: #1976d2;
+            margin-bottom: 1rem;
+        }
+        
+        .importante ul {
+            color: #1976d2;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .calculadora-container, .ejemplos-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</body>
+</html>
