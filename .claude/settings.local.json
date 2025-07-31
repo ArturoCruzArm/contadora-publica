@@ -12,7 +12,8 @@
       "Bash(find:*)",
       "Bash(gh repo view:*)",
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:arturocruarm.github.io)"
+      "WebFetch(domain:arturocruarm.github.io)",
+      "WebFetch(domain:arturocruzarm.github.io)"
     ],
     "deny": []
   }

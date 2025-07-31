@@ -3,17 +3,18 @@
 
 const CACHE_NAME = 'contadora-fabiola-v1.0.0';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/styles.css',
-    '/script.js',
-    '/privacy-policy.html',
-    '/servicios/pymes.html',
-    '/calculadoras/isr.html',
-    '/recursos/guias.html',
-    '/citas/agendar.html',
-    '/site.webmanifest',
-    '/favicon.svg',
+    '/contadora-publica/',
+    '/contadora-publica/index.html',
+    '/contadora-publica/styles.css',
+    '/contadora-publica/script.js',
+    '/contadora-publica/images/fabiola-calvillo.jpeg',
+    '/contadora-publica/privacy-policy.html',
+    '/contadora-publica/servicios/pymes.html',
+    '/contadora-publica/calculadoras/isr.html',
+    '/contadora-publica/recursos/guias.html',
+    '/contadora-publica/citas/agendar.html',
+    '/contadora-publica/site.webmanifest',
+    '/contadora-publica/favicon.svg',
     // CDN resources
     'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
@@ -111,7 +112,7 @@ self.addEventListener('fetch', event => {
                         
                         // Si es una página, servir index.html como fallback
                         if (event.request.destination === 'document') {
-                            return caches.match('/index.html');
+                            return caches.match('/contadora-publica/index.html');
                         }
                         
                         // Para otros recursos, mostrar error

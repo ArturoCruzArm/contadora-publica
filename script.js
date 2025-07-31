@@ -48,8 +48,21 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
     submitButton.disabled = true;
     
-    // Envío real del formulario usando Formspree (servicio gratuito para GitHub Pages)
-    fetch('https://formspree.io/f/YOUR_FORM_ID', {
+    // Mostrar mensaje de contacto por WhatsApp en lugar de formulario roto
+    showNotification('Por favor, contacte directamente por WhatsApp para una respuesta más rápida: 477 386 8927', 'info');
+    
+    // Redirigir a WhatsApp con mensaje preformateado
+    const whatsappMessage = `Hola C.P. María Fabiola, me interesa contactar para: ${data.servicio || 'servicios contables'}. Mi nombre es ${data.nombre} y mi email es ${data.email}. ${data.mensaje}`;
+    const whatsappURL = `https://wa.me/524773868927?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(whatsappURL, '_blank');
+    
+    this.reset();
+    submitButton.textContent = originalText;
+    submitButton.disabled = false;
+    return;
+    
+    // Código original del formulario (deshabilitado)
+    fetch('https://formspree.io/f/DISABLED', {
         method: 'POST',
         body: formData,
         headers: {
@@ -402,8 +415,8 @@ const translations = {
             blog: 'Blog'
         },
         hero: {
-            title: 'Bienvenido a mi práctica profesional',
-            subtitle: 'Soy María Fabiola Calvillo Rocha, Contadora Pública egresada de la Universidad de León, con sede en León, Guanajuato.',
+            title: 'Bienvenida a mi práctica profesional',
+            subtitle: 'Soy C.P. María Fabiola Calvillo Rocha, Contadora Pública egresada de la Universidad de León, con sede en León, Guanajuato.',
             cta1: 'Solicitar Consulta',
             cta2: 'Conocer Servicios'
         }
@@ -422,7 +435,7 @@ const translations = {
         },
         hero: {
             title: 'Welcome to my professional practice',
-            subtitle: 'I am María Fabiola Calvillo Rocha, Public Accountant graduated from Universidad de León, based in León, Guanajuato.',
+            subtitle: 'I am C.P. María Fabiola Calvillo Rocha, Public Accountant graduated from Universidad de León, based in León, Guanajuato.',
             cta1: 'Request Consultation',
             cta2: 'Learn About Services'
         }
