@@ -52,7 +52,7 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     showNotification('Por favor, contacte directamente por WhatsApp para una respuesta más rápida: 477 386 8927', 'info');
     
     // Redirigir a WhatsApp con mensaje preformateado incluyendo RFC
-    const whatsappMessage = `Hola C.P. María Fabiola, me interesa contactar para: ${data.servicio || 'servicios contables'}. Mi nombre es ${data.nombre}, mi email es ${data.email}. ${data.mensaje}. Mi RFC: CARF8610187S2`;
+    const whatsappMessage = `Hola C.P. María Fabiola, me interesa contactar para: ${data.servicio || 'servicios contables'}. Mi nombre es ${data.nombre}, mi email es ${data.email}. ${data.mensaje}. Puedes responderme también a: calvillofabiola19@gmail.com`;
     const whatsappURL = `https://wa.me/524773868927?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappURL, '_blank');
     
