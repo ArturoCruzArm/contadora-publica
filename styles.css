@@ -1542,6 +1542,65 @@ p {
     text-align: right;
 }
 
+/* Competencias Técnicas */
+.competencias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.competencia-category {
+    background: var(--background-color);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 4px solid var(--accent-color);
+}
+
+.competencia-category:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.competencia-category h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.competencia-category h3 i {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+}
+
+.competencias-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.competencia-item {
+    background: linear-gradient(135deg, var(--accent-color), var(--success-color));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: inline-block;
+    transition: var(--transition);
+    cursor: default;
+}
+
+.competencia-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
 /* Responsive adicional */
 @media (max-width: 768px) {
     .sobre-mi-content {

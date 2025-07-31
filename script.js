@@ -51,8 +51,8 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     // Mostrar mensaje de contacto por WhatsApp en lugar de formulario roto
     showNotification('Por favor, contacte directamente por WhatsApp para una respuesta más rápida: 477 386 8927', 'info');
     
-    // Redirigir a WhatsApp con mensaje preformateado
-    const whatsappMessage = `Hola C.P. María Fabiola, me interesa contactar para: ${data.servicio || 'servicios contables'}. Mi nombre es ${data.nombre} y mi email es ${data.email}. ${data.mensaje}`;
+    // Redirigir a WhatsApp con mensaje preformateado incluyendo RFC
+    const whatsappMessage = `Hola C.P. María Fabiola, me interesa contactar para: ${data.servicio || 'servicios contables'}. Mi nombre es ${data.nombre}, mi email es ${data.email}. ${data.mensaje}. Mi RFC: CARF8610187S2`;
     const whatsappURL = `https://wa.me/524773868927?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappURL, '_blank');
     
@@ -416,7 +416,7 @@ const translations = {
         },
         hero: {
             title: 'Bienvenida a mi práctica profesional',
-            subtitle: 'Soy C.P. María Fabiola Calvillo Rocha, Contadora Pública egresada de la Universidad de León, con sede en León, Guanajuato.',
+            subtitle: 'Soy C.P. María Fabiola Calvillo Rocha, Contadora Pública con Cédula Profesional 11087841, con más de 19 años de experiencia en contabilidad, auditoría y administración pública.',
             cta1: 'Solicitar Consulta',
             cta2: 'Conocer Servicios'
         }
@@ -435,7 +435,7 @@ const translations = {
         },
         hero: {
             title: 'Welcome to my professional practice',
-            subtitle: 'I am C.P. María Fabiola Calvillo Rocha, Public Accountant graduated from Universidad de León, based in León, Guanajuato.',
+            subtitle: 'I am C.P. María Fabiola Calvillo Rocha, Public Accountant with Professional License 11087841, with over 19 years of experience in accounting, auditing and public administration.',
             cta1: 'Request Consultation',
             cta2: 'Learn About Services'
         }

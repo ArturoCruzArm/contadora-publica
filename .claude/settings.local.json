@@ -13,7 +13,8 @@
       "Bash(gh repo view:*)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:arturocruarm.github.io)",
-      "WebFetch(domain:arturocruzarm.github.io)"
+      "WebFetch(domain:arturocruzarm.github.io)",
+      "Bash(git push:*)"
     ],
     "deny": []
   }
