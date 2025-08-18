@@ -117,6 +117,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Skip link para accesibilidad -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
@@ -134,7 +137,7 @@
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
             <div class="nav-actions">
-                <button id="search-toggle" class="search-btn" title="Buscar contenido">
+                <button id="search-toggle" class="search-btn" title="Buscar contenido" aria-label="Buscar en el sitio">
                     <i class="fas fa-search"></i>
                 </button>
                 <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Menú de navegación móvil" aria-expanded="false" aria-controls="nav-menu">
@@ -145,11 +148,6 @@
                         <span></span>
                     </div>
                 </button>
-                <div class="nav-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
             </div>
         </nav>
         <div class="nav-backdrop" id="nav-backdrop" onclick="closeMobileMenu()"></div>
@@ -172,7 +170,7 @@
         </div>
     </div>
 
-    <main>
+    <main id="main-content">
         <!-- Sección de Bienvenida -->
         <section id="inicio" class="hero">
             <div class="container">
@@ -404,6 +402,11 @@
                             <li>Auditorías internas y externas</li>
                             <li>Elaboración de reportes financieros</li>
                         </ul>
+                        <div class="servicio-actions">
+                            <a href="https://wa.me/524773868927?text=Hola%20C.P.%20Fabiola,%20me%20interesa%20el%20servicio%20de%20Contabilidad%20y%20Auditoría" class="btn-servicio" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Consultar
+                            </a>
+                        </div>
                     </div>
 
                     <div class="servicio-card">
@@ -418,6 +421,11 @@
                             <li>Pagos previsionales</li>
                             <li>Asesoría en normatividad fiscal</li>
                         </ul>
+                        <div class="servicio-actions">
+                            <a href="https://wa.me/524773868927?text=Hola%20C.P.%20Fabiola,%20me%20interesa%20el%20servicio%20de%20Cumplimiento%20Fiscal%20y%20SAT" class="btn-servicio" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Consultar
+                            </a>
+                        </div>
                     </div>
 
                     <div class="servicio-card">
@@ -432,6 +440,11 @@
                             <li>Cálculo de prestaciones sociales</li>
                             <li>Manejo de sistemas SUA y IMSS</li>
                         </ul>
+                        <div class="servicio-actions">
+                            <a href="https://wa.me/524773868927?text=Hola%20C.P.%20Fabiola,%20me%20interesa%20el%20servicio%20de%20Nóminas%20y%20Recursos%20Humanos" class="btn-servicio" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Consultar
+                            </a>
+                        </div>
                     </div>
 
                     <div class="servicio-card">
@@ -446,6 +459,11 @@
                             <li>Conciliación de pagos recaudados</li>
                             <li>Asesoría para pago de multas</li>
                         </ul>
+                        <div class="servicio-actions">
+                            <a href="https://wa.me/524773868927?text=Hola%20C.P.%20Fabiola,%20me%20interesa%20el%20servicio%20de%20Cobro%20y%20Recuperación" class="btn-servicio" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Consultar
+                            </a>
+                        </div>
                     </div>
 
                     <div class="servicio-card">
@@ -460,6 +478,11 @@
                             <li>Solicitudes de transparencia</li>
                             <li>Reportes especializados para gobierno</li>
                         </ul>
+                        <div class="servicio-actions">
+                            <a href="https://wa.me/524773868927?text=Hola%20C.P.%20Fabiola,%20me%20interesa%20el%20servicio%20de%20Administración%20Gubernamental" class="btn-servicio" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Consultar
+                            </a>
+                        </div>
                     </div>
 
                     <div class="servicio-card">
@@ -474,6 +497,11 @@
                             <li>Optimización de procesos contables</li>
                             <li>Asesoría en gestión administrativa</li>
                         </ul>
+                        <div class="servicio-actions">
+                            <a href="https://wa.me/524773868927?text=Hola%20C.P.%20Fabiola,%20me%20interesa%20el%20servicio%20de%20Consultoría%20Empresarial" class="btn-servicio" target="_blank">
+                                <i class="fab fa-whatsapp"></i> Consultar
+                            </a>
+                        </div>
                     </div>
 
                 </div>

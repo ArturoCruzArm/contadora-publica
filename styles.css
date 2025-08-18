@@ -2952,6 +2952,103 @@ p {
 }
 
 /* ================================
+   SERVICE CARDS IMPROVEMENTS
+   ================================ */
+
+/* Service action buttons */
+.servicio-actions {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.btn-servicio {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    border: 2px solid var(--accent-color);
+    min-height: 44px;
+    min-width: 120px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn-servicio:hover,
+.btn-servicio:focus {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-servicio:active {
+    transform: translateY(0) scale(0.95);
+}
+
+.btn-servicio i {
+    font-size: 1rem;
+}
+
+/* Enhanced service cards */
+.servicio-card {
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid var(--border-color);
+}
+
+.servicio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent-color);
+}
+
+.servicio-card .servicio-icon {
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.servicio-card:hover .servicio-icon {
+    transform: scale(1.1);
+    color: var(--accent-color);
+}
+
+/* Mobile optimizations for service cards */
+@media (max-width: 768px) {
+    .servicio-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .servicio-card:hover {
+        transform: none;
+    }
+    
+    .servicio-card:active {
+        transform: scale(0.98);
+        transition: transform 0.1s ease;
+    }
+    
+    .btn-servicio {
+        width: 100%;
+        max-width: 200px;
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .servicio-actions {
+        margin-top: 1rem;
+    }
+}
+
+/* ================================
    MOBILE HAMBURGER MENU
    ================================ */
 
@@ -3101,11 +3198,28 @@ p {
 @media (max-width: 768px) {
     .mobile-menu-toggle {
         display: block;
+        order: 3;
     }
     
     .nav {
         position: relative;
         flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .nav-brand {
+        order: 1;
+        z-index: 1001;
+        flex: 1;
+    }
+    
+    .nav-actions {
+        order: 2;
+        gap: 1rem;
+        display: flex;
+        align-items: center;
+        z-index: 1001;
     }
     
     .nav-menu {
@@ -3128,6 +3242,8 @@ p {
         overflow: hidden;
         border: 1px solid var(--border-color);
         border-top: none;
+        order: 4;
+        width: 100%;
     }
     
     .nav-menu.mobile-open {
@@ -3139,6 +3255,7 @@ p {
     
     .nav-menu li {
         width: 100%;
+        margin: 0;
     }
     
     .nav-menu a {
@@ -3150,6 +3267,12 @@ p {
         border: 1px solid var(--border-color);
         display: block;
         transition: all 0.3s ease;
+        text-decoration: none;
+        color: var(--text-color);
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .nav-menu a:hover,
@@ -3165,21 +3288,156 @@ p {
         color: white;
         transform: scale(0.98);
     }
-    
-    /* Hide original nav toggle */
-    .nav-toggle {
-        display: none;
+}
+
+/* Desktop menu visibility */
+@media (min-width: 769px) {
+    .mobile-menu-toggle {
+        display: none !important;
     }
     
-    /* Adjust nav actions for mobile */
-    .nav-actions {
-        gap: 1rem;
-        order: 2;
+    .nav-backdrop {
+        display: none !important;
     }
     
-    /* Ensure proper stacking order */
-    .nav-brand {
-        order: 1;
-        z-index: 1001;
+    .nav-menu {
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        max-height: none !important;
+        overflow: visible !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+        flex-direction: row !important;
+        padding: 0 !important;
+        gap: 2rem !important;
+    }
+    
+    .nav-menu li {
+        width: auto !important;
+    }
+    
+    .nav-menu a {
+        width: auto !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0.5rem 1rem !important;
+    }
+}
+
+/* ================================
+   ACCESSIBILITY IMPROVEMENTS
+   ================================ */
+
+/* Focus styles for better accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+    border-radius: var(--border-radius);
+}
+
+/* Skip link for screen readers */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--primary-color);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 0 0 4px 4px;
+    z-index: 10000;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Better contrast for links */
+a {
+    color: var(--accent-color);
+    transition: var(--transition);
+}
+
+a:hover,
+a:focus {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --text-color: #000000;
+        --background-color: #ffffff;
+        --accent-color: #0000ff;
+        --primary-color: #000080;
+        --border-color: #000000;
+    }
+    
+    .btn-primary,
+    .btn-secondary,
+    .btn-servicio {
+        border: 2px solid #000000;
+    }
+    
+    .servicio-card,
+    .testimonio-card {
+        border: 2px solid #000000;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .scroll-top-btn,
+    .mobile-menu-toggle,
+    .nav-menu {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    .header,
+    .scroll-top-btn,
+    .mobile-menu-toggle,
+    .nav-backdrop,
+    .search-modal,
+    .theme-toggle,
+    .language-selector {
+        display: none !important;
+    }
+    
+    .section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    .servicio-card,
+    .testimonio-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        margin-bottom: 1rem;
+    }
+    
+    a[href^="http"]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
     }
 }

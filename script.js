@@ -1048,10 +1048,12 @@ function scrollToTop() {
 // Show/hide scroll to top button based on scroll position
 function updateScrollToTopButton() {
     const scrollTopBtn = document.getElementById('scrollTopBtn');
-    if (window.pageYOffset > 300) {
-        scrollTopBtn.classList.add('visible');
-    } else {
-        scrollTopBtn.classList.remove('visible');
+    if (scrollTopBtn) {
+        if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
     }
 }
 
