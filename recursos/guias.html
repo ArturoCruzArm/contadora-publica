@@ -211,41 +211,90 @@
     </main>
 
     <script>
-        // Simular descarga de recursos
+        // Mapa de recursos y sus archivos
+        const downloadFiles = {
+            'reforma-fiscal-2025': '../downloads/pdf/reforma-fiscal-2025.pdf',
+            'cumplimiento-digital-2025': '../downloads/pdf/cumplimiento-digital-2025.pdf',
+            'guia-deducciones': '../downloads/pdf/guia-deducciones.pdf',
+            'plantilla-flujo': '../downloads/excel/plantilla-flujo.csv',
+            'calendario-fiscal': '../downloads/pdf/calendario-fiscal.pdf',
+            'checklist-facturacion': '../downloads/pdf/checklist-facturacion.pdf',
+            'plantilla-presupuesto': '../downloads/excel/plantilla-presupuesto.csv',
+            'ia-contadores-2025': '../downloads/pdf/ia-contadores-2025.pdf',
+            'manual-contabilidad-2025': '../downloads/pdf/manual-contabilidad-2025.pdf'
+        };
+
+        // Implementar descarga real de recursos
         document.querySelectorAll('.download-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const resource = this.dataset.resource;
+                const filePath = downloadFiles[resource];
                 
-                // Mostrar notificación de descarga
-                const notification = document.createElement('div');
-                notification.style.cssText = `
-                    position: fixed;
-                    top: 2rem;
-                    right: 2rem;
-                    background: var(--success-color);
-                    color: white;
-                    padding: 1rem 2rem;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                    z-index: 10000;
-                    animation: slideInRight 0.3s ease;
-                `;
-                notification.innerHTML = `
-                    <i class="fas fa-check-circle"></i> 
-                    Descarga iniciada. El archivo se guardará en tu carpeta de Descargas.
-                `;
-                
-                document.body.appendChild(notification);
-                
-                setTimeout(() => {
-                    notification.style.animation = 'slideOutRight 0.3s ease';
+                if (filePath) {
+                    // Crear enlace temporal para descarga
+                    const link = document.createElement('a');
+                    link.href = filePath;
+                    link.download = filePath.split('/').pop();
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    
+                    // Mostrar notificación de éxito
+                    const notification = document.createElement('div');
+                    notification.style.cssText = `
+                        position: fixed;
+                        top: 2rem;
+                        right: 2rem;
+                        background: var(--success-color);
+                        color: white;
+                        padding: 1rem 2rem;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                        z-index: 10000;
+                        animation: slideInRight 0.3s ease;
+                    `;
+                    notification.innerHTML = `
+                        <i class="fas fa-check-circle"></i> 
+                        ¡Descarga exitosa! El archivo se guardó en tu carpeta de Descargas.
+                    `;
+                    
+                    document.body.appendChild(notification);
+                    
                     setTimeout(() => {
-                        document.body.removeChild(notification);
-                    }, 300);
-                }, 3000);
-                
-                // En un sitio real, aquí iría la lógica de descarga
-                console.log(`Descargando recurso: ${resource}`);
+                        notification.style.animation = 'slideOutRight 0.3s ease';
+                        setTimeout(() => {
+                            document.body.removeChild(notification);
+                        }, 300);
+                    }, 3000);
+                } else {
+                    // Mostrar error si no se encuentra el archivo
+                    const notification = document.createElement('div');
+                    notification.style.cssText = `
+                        position: fixed;
+                        top: 2rem;
+                        right: 2rem;
+                        background: #e74c3c;
+                        color: white;
+                        padding: 1rem 2rem;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                        z-index: 10000;
+                        animation: slideInRight 0.3s ease;
+                    `;
+                    notification.innerHTML = `
+                        <i class="fas fa-exclamation-circle"></i> 
+                        Error: No se pudo descargar el archivo. Intenta más tarde.
+                    `;
+                    
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        notification.style.animation = 'slideOutRight 0.3s ease';
+                        setTimeout(() => {
+                            document.body.removeChild(notification);
+                        }, 300);
+                    }, 3000);
+                }
             });
         });
         
@@ -378,6 +427,29 @@
         @media (max-width: 768px) {
             .newsletter-form .form-group {
                 flex-direction: column;
+            }
+        }
+        
+        /* Animaciones para notificaciones */
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
             }
         }
     </style>
