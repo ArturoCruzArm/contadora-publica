@@ -1159,6 +1159,23 @@ function throttle(func, limit) {
 
 // Initialize mobile menu functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Ensure menu starts in correct state
+    initializeMobileMenu();
+    
+    function initializeMobileMenu() {
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const navBackdrop = document.getElementById('nav-backdrop');
+        
+        if (mobileMenuToggle && navMenu && navBackdrop) {
+            // Force reset menu state on page load
+            mobileMenuToggle.classList.remove('open');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            navMenu.classList.remove('mobile-open');
+            navBackdrop.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
     // Close mobile menu when clicking on menu links
     const navMenuLinks = document.querySelectorAll('.nav-menu a');
     
@@ -1187,6 +1204,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth > 768) {
             closeMobileMenu();
         }
+        // Re-initialize menu state on resize
+        initializeMobileMenu();
     });
     
     // Initialize scroll to top button

@@ -3222,6 +3222,7 @@ p {
         z-index: 1001;
     }
     
+    /* IMPORTANT: Hide mobile menu by default */
     .nav-menu {
         position: absolute;
         top: 100%;
@@ -3233,24 +3234,26 @@ p {
         flex-direction: column;
         padding: 1rem;
         gap: 0.5rem;
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
+        transform: translateY(-100%) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
         transition: all 0.3s ease;
         z-index: 1000;
-        max-height: 0;
+        max-height: 0 !important;
         overflow: hidden;
         border: 1px solid var(--border-color);
         border-top: none;
         order: 4;
         width: 100%;
+        display: flex;
     }
     
+    /* Only show when explicitly opened */
     .nav-menu.mobile-open {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-        max-height: 500px;
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        max-height: 500px !important;
     }
     
     .nav-menu li {
@@ -3265,14 +3268,13 @@ p {
         border-radius: var(--border-radius);
         background-color: var(--background-alt);
         border: 1px solid var(--border-color);
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         transition: all 0.3s ease;
         text-decoration: none;
         color: var(--text-color);
         min-height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
     
     .nav-menu a:hover,
@@ -3288,6 +3290,35 @@ p {
         color: white;
         transform: scale(0.98);
     }
+}
+
+/* Force correct initial state */
+.nav-menu {
+    display: flex;
+}
+
+.mobile-menu-toggle {
+    display: none;
+}
+
+.mobile-menu-toggle.open .hamburger span:nth-child(1) {
+    top: 9px;
+    width: 0%;
+    left: 50%;
+}
+
+.mobile-menu-toggle.open .hamburger span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.mobile-menu-toggle.open .hamburger span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+.mobile-menu-toggle.open .hamburger span:nth-child(4) {
+    top: 9px;
+    width: 0%;
+    left: 50%;
 }
 
 /* Desktop menu visibility */
@@ -3313,6 +3344,7 @@ p {
         flex-direction: row !important;
         padding: 0 !important;
         gap: 2rem !important;
+        display: flex !important;
     }
     
     .nav-menu li {
@@ -3324,6 +3356,7 @@ p {
         background: transparent !important;
         border: none !important;
         padding: 0.5rem 1rem !important;
+        display: block !important;
     }
 }
 
