@@ -980,3 +980,190 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
 });
+
+// ================================
+// MOBILE MENU FUNCTIONALITY
+// ================================
+
+// Mobile menu functionality
+function toggleMobileMenu() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navBackdrop = document.getElementById('nav-backdrop');
+    const isOpen = navMenu.classList.contains('mobile-open');
+    
+    if (isOpen) {
+        closeMobileMenu();
+    } else {
+        openMobileMenu();
+    }
+}
+
+function openMobileMenu() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navBackdrop = document.getElementById('nav-backdrop');
+    
+    mobileMenuToggle.classList.add('open');
+    mobileMenuToggle.setAttribute('aria-expanded', 'true');
+    navMenu.classList.add('mobile-open');
+    navBackdrop.classList.add('active');
+    
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = 'hidden';
+    
+    // Focus first menu item for accessibility
+    const firstMenuItem = navMenu.querySelector('a');
+    if (firstMenuItem) {
+        setTimeout(() => firstMenuItem.focus(), 300);
+    }
+}
+
+function closeMobileMenu() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navBackdrop = document.getElementById('nav-backdrop');
+    
+    mobileMenuToggle.classList.remove('open');
+    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+    navMenu.classList.remove('mobile-open');
+    navBackdrop.classList.remove('active');
+    
+    // Restore body scroll
+    document.body.style.overflow = '';
+}
+
+// ================================
+// SCROLL TO TOP FUNCTIONALITY
+// ================================
+
+// Scroll to top functionality
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Show/hide scroll to top button based on scroll position
+function updateScrollToTopButton() {
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    if (window.pageYOffset > 300) {
+        scrollTopBtn.classList.add('visible');
+    } else {
+        scrollTopBtn.classList.remove('visible');
+    }
+}
+
+// ================================
+// MOBILE OPTIMIZATIONS
+// ================================
+
+// Throttle function for better performance
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    }
+}
+
+// Initialize mobile menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Close mobile menu when clicking on menu links
+    const navMenuLinks = document.querySelectorAll('.nav-menu a');
+    
+    navMenuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            // Close mobile menu if it's open
+            const navMenu = document.getElementById('nav-menu');
+            if (navMenu.classList.contains('mobile-open')) {
+                closeMobileMenu();
+            }
+        });
+    });
+    
+    // Close mobile menu on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const navMenu = document.getElementById('nav-menu');
+            if (navMenu.classList.contains('mobile-open')) {
+                closeMobileMenu();
+            }
+        }
+    });
+    
+    // Close mobile menu on window resize if screen becomes larger
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Initialize scroll to top button
+    window.addEventListener('scroll', throttle(updateScrollToTopButton, 100));
+    updateScrollToTopButton(); // Check on load
+    
+    // Mobile performance optimizations
+    if (window.innerWidth <= 768) {
+        // Disable animations on mobile for better performance
+        const style = document.createElement('style');
+        style.textContent = `
+            @media (max-width: 768px) {
+                *, *::before, *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                    scroll-behavior: auto !important;
+                }
+                
+                .nav-menu,
+                .mobile-menu-toggle,
+                .scroll-top-btn {
+                    animation-duration: 0.3s !important;
+                    transition-duration: 0.3s !important;
+                }
+            }
+        `;
+        
+        // Only add performance optimizations for low-end devices
+        if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+            document.head.appendChild(style);
+        }
+    }
+});
+
+// ================================
+// MOBILE TOUCH OPTIMIZATIONS
+// ================================
+
+// Optimize touch events for mobile
+if ('ontouchstart' in window) {
+    // Add touch-friendly interactions
+    const touchElements = document.querySelectorAll('.btn-primary, .btn-secondary, .nav-menu a, .social-link');
+    
+    touchElements.forEach(element => {
+        element.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.95)';
+        }, { passive: true });
+        
+        element.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        }, { passive: true });
+    });
+    
+    // Prevent double-tap zoom on buttons
+    const buttons = document.querySelectorAll('button, .btn-primary, .btn-secondary');
+    buttons.forEach(button => {
+        button.addEventListener('touchend', function(e) {
+            e.preventDefault();
+        });
+    });
+}

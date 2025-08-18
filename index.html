@@ -123,7 +123,7 @@
                 <h2>C.P. María Fabiola Calvillo Rocha</h2>
                 <span>Contadora Pública</span>
             </div>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#sobre-mi">Sobre Mí</a></li>
                 <li><a href="#formacion">Experiencia</a></li>
@@ -137,6 +137,14 @@
                 <button id="search-toggle" class="search-btn" title="Buscar contenido">
                     <i class="fas fa-search"></i>
                 </button>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Menú de navegación móvil" aria-expanded="false" aria-controls="nav-menu">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
                 <div class="nav-toggle">
                     <span></span>
                     <span></span>
@@ -144,6 +152,7 @@
                 </div>
             </div>
         </nav>
+        <div class="nav-backdrop" id="nav-backdrop" onclick="closeMobileMenu()"></div>
     </header>
 
     <!-- Modal de Búsqueda -->
@@ -1057,8 +1066,8 @@
         </section>
     </main>
 
-    <!-- Botón volver arriba -->
-    <button id="scrollTopBtn" class="scroll-top-btn" title="Volver arriba">
+    <!-- Botón volver arriba optimizado para móviles -->
+    <button id="scrollTopBtn" class="scroll-top-btn" onclick="scrollToTop()" title="Volver arriba" aria-label="Volver al inicio">
         <i class="fas fa-chevron-up"></i>
     </button>
 
