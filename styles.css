@@ -263,9 +263,11 @@ p {
 }
 
 .btn-primary:hover {
-    background-color: transparent;
-    color: var(--accent-color);
+    background-color: var(--accent-color);
+    color: white;
     border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 123, 191, 0.3);
 }
 
 .btn-secondary {
