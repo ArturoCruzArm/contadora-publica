@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario Fiscal 2025 - México</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.4; margin: 15px; color: #333; font-size: 14px; }
+        .header { text-align: center; border-bottom: 3px solid #e74c3c; padding-bottom: 15px; margin-bottom: 20px; }
+        .header h1 { color: #2c3e50; margin-bottom: 5px; font-size: 24px; }
+        .month-section { margin-bottom: 25px; page-break-inside: avoid; }
+        .month-header { background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 12px; text-align: center; font-weight: bold; font-size: 18px; }
+        .month-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: #ddd; border: 2px solid #e74c3c; }
+        .day-header { background: #34495e; color: white; padding: 8px; text-align: center; font-weight: bold; font-size: 12px; }
+        .day { background: white; padding: 6px; min-height: 80px; position: relative; font-size: 11px; }
+        .day-number { font-weight: bold; color: #2c3e50; margin-bottom: 3px; }
+        .obligation { background: #fff3cd; padding: 2px 4px; margin: 1px 0; border-radius: 3px; font-size: 9px; border-left: 3px solid #ffc107; }
+        .deadline { background: #f8d7da; padding: 2px 4px; margin: 1px 0; border-radius: 3px; font-size: 9px; border-left: 3px solid #dc3545; }
+        .payment { background: #d1ecf1; padding: 2px 4px; margin: 1px 0; border-radius: 3px; font-size: 9px; border-left: 3px solid #17a2b8; }
+        .weekend { background: #f8f9fa; }
+        .holiday { background: #ffeaa7; }
+        .legend { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 20px 0; }
+        .legend-item { padding: 10px; border-radius: 5px; text-align: center; }
+        .resumen { background: #f8f9fa; padding: 15px; border-left: 4px solid #3498db; margin: 20px 0; }
+        .footer { margin-top: 30px; text-align: center; color: #7f8c8d; border-top: 1px solid #ecf0f1; padding-top: 15px; }
+        @media print { body { margin: 5px; font-size: 11px; } .month-section { page-break-after: always; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>CALENDARIO FISCAL 2025</h1>
+        <h2>República Mexicana - Actualizado Agosto 2025</h2>
+        <p><strong>C.P. María Fabiola Calvillo Rocha</strong></p>
+        <p>León, Guanajuato | Tel: 477 386 8927 | calvillofabiola19@gmail.com</p>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item obligation">
+            <strong>Obligaciones Mensuales</strong><br>
+            IVA, Retenciones, DIOT
+        </div>
+        <div class="legend-item deadline">
+            <strong>Vencimientos Importantes</strong><br>
+            Declaraciones Anuales, PTU
+        </div>
+        <div class="legend-item payment">
+            <strong>Pagos Especiales</strong><br>
+            Provisionales, Complementarios
+        </div>
+    </div>
+
+    <div class="resumen">
+        <h3>PRINCIPALES CAMBIOS 2025:</h3>
+        <ul>
+            <li><strong>Nuevo plazo CFDI 4.0:</strong> Máximo 3 días para timbrado</li>
+            <li><strong>Declaración anual personas físicas:</strong> Del 1° de abril al 30 de abril</li>
+            <li><strong>DIOT simplificada:</strong> Nuevo formato desde enero</li>
+            <li><strong>Buzón tributario obligatorio:</strong> Para todas las personas morales</li>
+        </ul>
+    </div>
+
+    <!-- ENERO 2025 -->
+    <div class="month-section">
+        <div class="month-header">ENERO 2025</div>
+        <div class="month-grid">
+            <div class="day-header">DOM</div>
+            <div class="day-header">LUN</div>
+            <div class="day-header">MAR</div>
+            <div class="day-header">MIÉ</div>
+            <div class="day-header">JUE</div>
+            <div class="day-header">VIE</div>
+            <div class="day-header">SÁB</div>
+            
+            <div class="day weekend"><div class="day-number"></div></div>
+            <div class="day holiday"><div class="day-number">1</div><div class="obligation">Año Nuevo</div></div>
+            <div class="day"><div class="day-number">2</div></div>
+            <div class="day"><div class="day-number">3</div></div>
+            <div class="day"><div class="day-number">4</div></div>
+            <div class="day weekend"><div class="day-number">5</div></div>
+            <div class="day weekend"><div class="day-number">6</div><div class="obligation">Reyes Magos</div></div>
+            
+            <div class="day weekend"><div class="day-number">7</div></div>
+            <div class="day"><div class="day-number">8</div></div>
+            <div class="day"><div class="day-number">9</div></div>
+            <div class="day"><div class="day-number">10</div></div>
+            <div class="day"><div class="day-number">11</div></div>
+            <div class="day weekend"><div class="day-number">12</div></div>
+            <div class="day weekend"><div class="day-number">13</div></div>
+            
+            <div class="day weekend"><div class="day-number">14</div></div>
+            <div class="day"><div class="day-number">15</div></div>
+            <div class="day"><div class="day-number">16</div></div>
+            <div class="day"><div class="day-number">17</div><div class="payment">IVA Dic 2024</div><div class="payment">Retenciones Dic</div></div>
+            <div class="day"><div class="day-number">18</div></div>
+            <div class="day weekend"><div class="day-number">19</div></div>
+            <div class="day weekend"><div class="day-number">20</div></div>
+            
+            <div class="day weekend"><div class="day-number">21</div></div>
+            <div class="day"><div class="day-number">22</div></div>
+            <div class="day"><div class="day-number">23</div></div>
+            <div class="day"><div class="day-number">24</div></div>
+            <div class="day"><div class="day-number">25</div><div class="obligation">DIOT Dic 2024</div></div>
+            <div class="day weekend"><div class="day-number">26</div></div>
+            <div class="day weekend"><div class="day-number">27</div></div>
+            
+            <div class="day weekend"><div class="day-number">28</div></div>
+            <div class="day"><div class="day-number">29</div></div>
+            <div class="day"><div class="day-number">30</div></div>
+            <div class="day"><div class="day-number">31</div><div class="deadline">Declaración Anual PM 2024</div></div>
+            <div class="day"><div class="day-number"></div></div>
+            <div class="day weekend"><div class="day-number"></div></div>
+            <div class="day weekend"><div class="day-number"></div></div>
+        </div>
+    </div>
+
+    <!-- FEBRERO 2025 -->
+    <div class="month-section">
+        <div class="month-header">FEBRERO 2025</div>
+        <div class="month-grid">
+            <div class="day-header">DOM</div>
+            <div class="day-header">LUN</div>
+            <div class="day-header">MAR</div>
+            <div class="day-header">MIÉ</div>
+            <div class="day-header">JUE</div>
+            <div class="day-header">VIE</div>
+            <div class="day-header">SÁB</div>
+            
+            <div class="day weekend"><div class="day-number"></div></div>
+            <div class="day weekend"><div class="day-number"></div></div>
+            <div class="day weekend"><div class="day-number"></div></div>
+            <div class="day weekend"><div class="day-number"></div></div>
+            <div class="day weekend"><div class="day-number"></div></div>
+            <div class="day weekend"><div class="day-number"></div></div>
+            <div class="day weekend"><div class="day-number">1</div></div>
+            
+            <div class="day weekend"><div class="day-number">2</div></div>
+            <div class="day holiday"><div class="day-number">3</div><div class="obligation">Const. 1917</div></div>
+            <div class="day"><div class="day-number">4</div></div>
+            <div class="day"><div class="day-number">5</div></div>
+            <div class="day"><div class="day-number">6</div></div>
+            <div class="day"><div class="day-number">7</div></div>
+            <div class="day weekend"><div class="day-number">8</div></div>
+            
+            <div class="day weekend"><div class="day-number">9</div></div>
+            <div class="day"><div class="day-number">10</div></div>
+            <div class="day"><div class="day-number">11</div></div>
+            <div class="day"><div class="day-number">12</div></div>
+            <div class="day"><div class="day-number">13</div></div>
+            <div class="day"><div class="day-number">14</div></div>
+            <div class="day weekend"><div class="day-number">15</div></div>
+            
+            <div class="day weekend"><div class="day-number">16</div></div>
+            <div class="day"><div class="day-number">17</div><div class="payment">IVA Ene 2025</div><div class="payment">Retenciones Ene</div></div>
+            <div class="day"><div class="day-number">18</div></div>
+            <div class="day"><div class="day-number">19</div></div>
+            <div class="day"><div class="day-number">20</div></div>
+            <div class="day"><div class="day-number">21</div></div>
+            <div class="day weekend"><div class="day-number">22</div></div>
+            
+            <div class="day weekend"><div class="day-number">23</div></div>
+            <div class="day holiday"><div class="day-number">24</div><div class="obligation">Día Bandera</div></div>
+            <div class="day"><div class="day-number">25</div><div class="obligation">DIOT Ene 2025</div></div>
+            <div class="day"><div class="day-number">26</div></div>
+            <div class="day"><div class="day-number">27</div></div>
+            <div class="day"><div class="day-number">28</div></div>
+            <div class="day weekend"><div class="day-number"></div></div>
+        </div>
+    </div>
+
+    <!-- MARZO 2025 -->
+    <div class="month-section">
+        <div class="month-header">MARZO 2025</div>
+        <div class="month-grid">
+            <div class="day-header">DOM</div>
+            <div class="day-header">LUN</div>
+            <div class="day-header">MAR</div>
+            <div class="day-header">MIÉ</div>
+            <div class="day-header">JUE</div>
+            <div class="day-header">VIE</div>
+            <div class="day-header">SÁB</div>
+            
+            <div class="day weekend"><div class="day-number"></div></div>
+            <div class="day weekend"><div class="day-number"></div></div>
+            <div class="day weekend"><div class="day-number"></div></div>
+            <div class="day weekend"><div class="day-number"></div></div>
+            <div class="day weekend"><div class="day-number"></div></div>
+            <div class="day weekend"><div class="day-number"></div></div>
+            <div class="day weekend"><div class="day-number">1</div></div>
+            
+            <div class="day weekend"><div class="day-number">2</div></div>
+            <div class="day"><div class="day-number">3</div></div>
+            <div class="day"><div class="day-number">4</div></div>
+            <div class="day"><div class="day-number">5</div></div>
+            <div class="day"><div class="day-number">6</div></div>
+            <div class="day"><div class="day-number">7</div></div>
+            <div class="day weekend"><div class="day-number">8</div></div>
+            
+            <div class="day weekend"><div class="day-number">9</div></div>
+            <div class="day"><div class="day-number">10</div></div>
+            <div class="day"><div class="day-number">11</div></div>
+            <div class="day"><div class="day-number">12</div></div>
+            <div class="day"><div class="day-number">13</div></div>
+            <div class="day"><div class="day-number">14</div></div>
+            <div class="day weekend"><div class="day-number">15</div></div>
+            
+            <div class="day weekend"><div class="day-number">16</div></div>
+            <div class="day holiday"><div class="day-number">17</div><div class="obligation">Nac. Juárez</div></div>
+            <div class="day"><div class="day-number">18</div><div class="payment">IVA Feb 2025</div><div class="payment">Retenciones Feb</div></div>
+            <div class="day"><div class="day-number">19</div></div>
+            <div class="day"><div class="day-number">20</div></div>
+            <div class="day"><div class="day-number">21</div></div>
+            <div class="day weekend"><div class="day-number">22</div></div>
+            
+            <div class="day weekend"><div class="day-number">23</div></div>
+            <div class="day"><div class="day-number">24</div></div>
+            <div class="day"><div class="day-number">25</div><div class="obligation">DIOT Feb 2025</div></div>
+            <div class="day"><div class="day-number">26</div></div>
+            <div class="day"><div class="day-number">27</div></div>
+            <div class="day"><div class="day-number">28</div></div>
+            <div class="day weekend"><div class="day-number">29</div></div>
+            
+            <div class="day weekend"><div class="day-number">30</div></div>
+            <div class="day"><div class="day-number">31</div><div class="deadline">Declaración Anual PF 2024</div><div class="deadline">PTU 2024</div></div>
+            <div class="day"><div class="day-number"></div></div>
+            <div class="day"><div class="day-number"></div></div>
+            <div class="day"><div class="day-number"></div></div>
+            <div class="day"><div class="day-number"></div></div>
+            <div class="day weekend"><div class="day-number"></div></div>
+        </div>
+    </div>
+
+    <!-- ABRIL 2025 -->
+    <div class="month-section">
+        <div class="month-header">ABRIL 2025</div>
+        <div class="month-grid">
+            <div class="day-header">DOM</div>
+            <div class="day-header">LUN</div>
+            <div class="day-header">MAR</div>
+            <div class="day-header">MIÉ</div>
+            <div class="day-header">JUE</div>
+            <div class="day-header">VIE</div>
+            <div class="day-header">SÁB</div>
+            
+            <div class="day weekend"><div class="day-number"></div></div>
+            <div class="day weekend"><div class="day-number"></div></div>
+            <div class="day weekend"><div class="day-number">1</div></div>
+            <div class="day"><div class="day-number">2</div></div>
+            <div class="day"><div class="day-number">3</div></div>
+            <div class="day"><div class="day-number">4</div></div>
+            <div class="day weekend"><div class="day-number">5</div></div>
+            
+            <div class="day weekend"><div class="day-number">6</div></div>
+            <div class="day"><div class="day-number">7</div></div>
+            <div class="day"><div class="day-number">8</div></div>
+            <div class="day"><div class="day-number">9</div></div>
+            <div class="day"><div class="day-number">10</div></div>
+            <div class="day"><div class="day-number">11</div></div>
+            <div class="day weekend"><div class="day-number">12</div></div>
+            
+            <div class="day weekend"><div class="day-number">13</div></div>
+            <div class="day"><div class="day-number">14</div></div>
+            <div class="day"><div class="day-number">15</div></div>
+            <div class="day"><div class="day-number">16</div></div>
+            <div class="day"><div class="day-number">17</div><div class="payment">IVA Mar 2025</div><div class="payment">Retenciones Mar</div></div>
+            <div class="day holiday"><div class="day-number">18</div><div class="obligation">Viernes Santo</div></div>
+            <div class="day weekend"><div class="day-number">19</div></div>
+            
+            <div class="day weekend"><div class="day-number">20</div></div>
+            <div class="day holiday"><div class="day-number">21</div><div class="obligation">Lunes de Pascua</div></div>
+            <div class="day"><div class="day-number">22</div></div>
+            <div class="day"><div class="day-number">23</div></div>
+            <div class="day"><div class="day-number">24</div></div>
+            <div class="day"><div class="day-number">25</div><div class="obligation">DIOT Mar 2025</div></div>
+            <div class="day weekend"><div class="day-number">26</div></div>
+            
+            <div class="day weekend"><div class="day-number">27</div></div>
+            <div class="day"><div class="day-number">28</div></div>
+            <div class="day"><div class="day-number">29</div></div>
+            <div class="day"><div class="day-number">30</div><div class="deadline">Personas Físicas 2024</div><div class="payment">1er Pago Provisional</div></div>
+            <div class="day"><div class="day-number"></div></div>
+            <div class="day"><div class="day-number"></div></div>
+            <div class="day weekend"><div class="day-number"></div></div>
+        </div>
+    </div>
+
+    <div class="resumen">
+        <h3>OBLIGACIONES PERMANENTES:</h3>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div>
+                <h4>PERSONAS MORALES:</h4>
+                <ul>
+                    <li>IVA: Día 17 del mes siguiente</li>
+                    <li>Retenciones: Día 17 del mes siguiente</li>
+                    <li>DIOT: Día 25 del mes siguiente</li>
+                    <li>Declaración Anual: Día 31 de marzo</li>
+                    <li>Pagos Provisionales: Día 17 de c/mes</li>
+                </ul>
+            </div>
+            <div>
+                <h4>PERSONAS FÍSICAS:</h4>
+                <ul>
+                    <li>IVA: Día 17 del mes siguiente</li>
+                    <li>ISR Actividad Empresarial: Día 17</li>
+                    <li>Declaración Anual: 1° abril - 30 abril</li>
+                    <li>DIOT: Día 25 (si aplica)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><strong>C.P. María Fabiola Calvillo Rocha</strong></p>
+        <p>Contadora Pública Certificada | Cédula: 12345678</p>
+        <p>León, Guanajuato | Tel: 477 386 8927 | calvillofabiola19@gmail.com</p>
+        <p><em>Calendario elaborado en Agosto 2025 - Verificar actualizaciones en SAT</em></p>
+        <p><small>NOTA: Este calendario es orientativo. Consulte el sitio web del SAT para confirmaciones oficiales.</small></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+PLANTILLA DE PRESUPUESTO EMPRESARIAL 2025-2026,,,,,,
+C.P. María Fabiola Calvillo Rocha - Contadora Pública,,,,,,
+León, Guanajuato | Tel: 477 386 8927 | Email: calvillofabiola19@gmail.com,,,,,,
+,,,,,,
+EMPRESA:,_____________________,RFC:,_____________________,,
+GIRO:,_____________________,PERÍODO:,2025-2026,,
+,,,,,,
+CONCEPTO,PRESUP 2025,REAL 2025,VAR %,PRESUP 2026,VAR % vs 2025
+,,,,,,
+INGRESOS,,,,,,
+Ventas Productos Línea A,0,0,0%,0,0%
+Ventas Productos Línea B,0,0,0%,0,0%
+Ventas Servicios,0,0,0%,0,0%
+Comisiones,0,0,0%,0,0%
+Ingresos Financieros,0,0,0%,0,0%
+Otros Ingresos,0,0,0%,0,0%
+TOTAL INGRESOS,=SUM(B9:B14),=SUM(C9:C14),=IF(B15<>0,(C15-B15)/B15*100,0),=SUM(E9:E14),=IF(B15<>0,(E15-B15)/B15*100,0)
+,,,,,,
+COSTO DE VENTAS,,,,,,
+Costo Materia Prima,0,0,0%,0,0%
+Mano de Obra Directa,0,0,0%,0,0%
+Gastos de Fabricación,0,0,0%,0,0%
+TOTAL COSTO VENTAS,=SUM(B19:B21),=SUM(C19:C21),=IF(B22<>0,(C22-B22)/B22*100,0),=SUM(E19:E21),=IF(B22<>0,(E22-B22)/B22*100,0)
+,,,,,,
+UTILIDAD BRUTA,=B15-B22,=C15-C22,=IF(B24<>0,(C24-B24)/B24*100,0),=E15-E22,=IF(B24<>0,(E24-B24)/B24*100,0)
+MARGEN BRUTO %,=IF(B15<>0,B24/B15*100,0),=IF(C15<>0,C24/C15*100,0),,=IF(E15<>0,E24/E15*100,0),
+,,,,,,
+GASTOS DE OPERACIÓN,,,,,,
+Sueldos y Salarios,0,0,0%,0,0%
+Prestaciones Sociales,0,0,0%,0,0%
+Renta y Servicios,0,0,0%,0,0%
+Depreciaciones,0,0,0%,0,0%
+Seguros,0,0,0%,0,0%
+Mantenimiento,0,0,0%,0,0%
+Publicidad y Marketing,0,0,0%,0,0%
+Gastos de Viaje,0,0,0%,0,0%
+Material de Oficina,0,0,0%,0,0%
+Servicios Profesionales,0,0,0%,0,0%
+Otros Gastos Operación,0,0,0%,0,0%
+TOTAL GASTOS OPERACIÓN,=SUM(B28:B38),=SUM(C28:C38),=IF(B39<>0,(C39-B39)/B39*100,0),=SUM(E28:E38),=IF(B39<>0,(E39-B39)/B39*100,0)
+,,,,,,
+UTILIDAD OPERATIVA,=B24-B39,=C24-C39,=IF(B41<>0,(C41-B41)/B41*100,0),=E24-E39,=IF(B41<>0,(E41-B41)/B41*100,0)
+MARGEN OPERATIVO %,=IF(B15<>0,B41/B15*100,0),=IF(C15<>0,C41/C15*100,0),,=IF(E15<>0,E41/E15*100,0),
+,,,,,,
+GASTOS FINANCIEROS,,,,,,
+Intereses Préstamos,0,0,0%,0,0%
+Comisiones Bancarias,0,0,0%,0,0%
+TOTAL GASTOS FINANCIEROS,=SUM(B45:B46),=SUM(C45:C46),=IF(B47<>0,(C47-B47)/B47*100,0),=SUM(E45:E46),=IF(B47<>0,(E47-B47)/B47*100,0)
+,,,,,,
+UTILIDAD ANTES IMPUESTOS,=B41-B47,=C41-C47,=IF(B49<>0,(C49-B49)/B49*100,0),=E41-E47,=IF(B49<>0,(E49-B49)/B49*100,0)
+,,,,,,
+IMPUESTOS,,,,,,
+ISR (30%),=B49*0.30,=C49*0.30,0%,=E49*0.30,0%
+PTU (10%),=B49*0.10,=C49*0.10,0%,=E49*0.10,0%
+TOTAL IMPUESTOS,=B52+B53,=C52+C53,=IF(B54<>0,(C54-B54)/B54*100,0),=E52+E53,=IF(B54<>0,(E54-B54)/B54*100,0)
+,,,,,,
+UTILIDAD NETA,=B49-B54,=C49-C54,=IF(B56<>0,(C56-B56)/B56*100,0),=E49-E54,=IF(B56<>0,(E56-B56)/B56*100,0)
+MARGEN NETO %,=IF(B15<>0,B56/B15*100,0),=IF(C15<>0,C56/C15*100,0),,=IF(E15<>0,E56/E15*100,0),
+,,,,,,
+ANÁLISIS FINANCIERO,,,,,,
+CONCEPTO,2025,2026,VARIACIÓN,,
+ROI (Return on Investment),=IF(B15<>0,B56/B15*100,0),=IF(E15<>0,E56/E15*100,0),=E61-B61,,
+Punto de Equilibrio,=IF((B24-B39)<>0,B39/(B24/B15-B22/B15),0),=IF((E24-E39)<>0,E39/(E24/E15-E22/E15),0),=C62-B62,,
+Crecimiento en Ventas,0%,=IF(B15<>0,(E15-B15)/B15*100,0),,,
+,,,,,,
+PROYECCIÓN TRIMESTRAL 2025,,,,,,
+CONCEPTO,T1,T2,T3,T4,TOTAL
+Ingresos Proyectados,=B15*0.23,=B15*0.25,=B15*0.26,=B15*0.26,=SUM(B67:E67)
+Gastos Proyectados,=B39*0.25,=B39*0.25,=B39*0.25,=B39*0.25,=SUM(B68:E68)
+Utilidad Proyectada,=B67-B68,=C67-C68,=D67-D68,=E67-E68,=SUM(B69:E69)
+,,,,,,
+INDICADORES CLAVE (KPIs),,,,,,
+Crecimiento Trimestral,0%,=IF(B67<>0,(C67-B67)/B67*100,0),=IF(C67<>0,(D67-C67)/C67*100,0),=IF(D67<>0,(E67-D67)/D67*100,0),
+Eficiencia Operativa,=IF(B67<>0,B69/B67*100,0),=IF(C67<>0,C69/C67*100,0),=IF(D67<>0,D69/D67*100,0),=IF(E67<>0,E69/E67*100,0),
+,,,,,,
+NOTAS Y SUPUESTOS:,,,,,,
+1. Inflación estimada 2025: 4.5%,,,,,,
+2. Crecimiento del mercado: 6%,,,,,,
+3. Nuevos productos/servicios en T3,,,,,,
+4. Inversión en marketing: 3% ventas,,,,,,
+5. Revisión mensual de presupuesto,,,,,,
+,,,,,,
+ALERTAS Y ACCIONES:,,,,,,
+- Si ventas < 90% presupuesto: revisar estrategia,,,,,,
+- Si gastos > 105% presupuesto: implementar controles,,,,,,
+- Evaluar ROI cada trimestre,,,,,,
+,,,,,,
+Elaborado por: C.P. María Fabiola Calvillo Rocha,,,,,,
+Fecha: Agosto 2025,,,,,,
+Próxima revisión: Noviembre 2025,,,,,,

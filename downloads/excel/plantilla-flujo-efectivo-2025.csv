@@ -1,0 +1,79 @@
+PLANTILLA DE FLUJO DE EFECTIVO 2025,,,,,,,,
+C.P. María Fabiola Calvillo Rocha - Contadora Pública,,,,,,,,
+León, Guanajuato | Tel: 477 386 8927 | Email: calvillofabiola19@gmail.com,,,,,,,,
+,,,,,,,,
+EMPRESA:,_____________________,PERÍODO:,2025,,,,,
+RFC:,_____________________,MONEDA:,PESOS MEXICANOS,,,,,
+,,,,,,,,
+CONCEPTO,ENE,FEB,MAR,ABR,MAY,JUN,TOTAL 1er SEM
+INGRESOS,,,,,,,,
+Ventas de Contado,0,0,0,0,0,0,=SUM(B10:G10)
+Cobranza de Clientes,0,0,0,0,0,0,=SUM(B11:G11)
+Otros Ingresos,0,0,0,0,0,0,=SUM(B12:G12)
+TOTAL INGRESOS,=SUM(B10:B12),=SUM(C10:C12),=SUM(D10:D12),=SUM(E10:E12),=SUM(F10:F12),=SUM(G10:G12),=SUM(H10:H12)
+,,,,,,,,
+EGRESOS,,,,,,,,
+Compras,0,0,0,0,0,0,=SUM(B16:G16)
+Sueldos y Salarios,0,0,0,0,0,0,=SUM(B17:G17)
+Prestaciones Sociales,0,0,0,0,0,0,=SUM(B18:G18)
+Renta,0,0,0,0,0,0,=SUM(B19:G19)
+Servicios (Luz Agua Tel),0,0,0,0,0,0,=SUM(B20:G20)
+Combustibles,0,0,0,0,0,0,=SUM(B21:G21)
+Mantenimiento,0,0,0,0,0,0,=SUM(B22:G22)
+Seguros,0,0,0,0,0,0,=SUM(B23:G23)
+Impuestos (IVA ISR),0,0,0,0,0,0,=SUM(B24:G24)
+Gastos Financieros,0,0,0,0,0,0,=SUM(B25:G25)
+Otros Gastos,0,0,0,0,0,0,=SUM(B26:G26)
+TOTAL EGRESOS,=SUM(B16:B26),=SUM(C16:C26),=SUM(D16:D26),=SUM(E16:E26),=SUM(F16:F26),=SUM(G16:G26),=SUM(H16:H26)
+,,,,,,,,
+FLUJO NETO,=B13-B27,=C13-C27,=D13-D27,=E13-E27,=F13-F27,=G13-G27,=H13-H27
+,,,,,,,,
+SALDO INICIAL,0,=B30,=C30,=D30,=E30,=F30,
+FLUJO ACUMULADO,=B29+B30,=C29+C30,=D29+D30,=E29+E30,=F29+F30,=G29+G30,
+,,,,,,,,
+SEGUNDO SEMESTRE,,,,,,,,
+CONCEPTO,JUL,AGO,SEP,OCT,NOV,DIC,TOTAL 2do SEM
+INGRESOS,,,,,,,,
+Ventas de Contado,0,0,0,0,0,0,=SUM(B36:G36)
+Cobranza de Clientes,0,0,0,0,0,0,=SUM(B37:G37)
+Otros Ingresos,0,0,0,0,0,0,=SUM(B38:G38)
+TOTAL INGRESOS,=SUM(B36:B38),=SUM(C36:C38),=SUM(D36:D38),=SUM(E36:E38),=SUM(F36:F38),=SUM(G36:G38),=SUM(H36:H38)
+,,,,,,,,
+EGRESOS,,,,,,,,
+Compras,0,0,0,0,0,0,=SUM(B42:G42)
+Sueldos y Salarios,0,0,0,0,0,0,=SUM(B43:G43)
+Prestaciones Sociales,0,0,0,0,0,0,=SUM(B44:G44)
+Renta,0,0,0,0,0,0,=SUM(B45:G45)
+Servicios (Luz Agua Tel),0,0,0,0,0,0,=SUM(B46:G46)
+Combustibles,0,0,0,0,0,0,=SUM(B47:G47)
+Mantenimiento,0,0,0,0,0,0,=SUM(B48:G48)
+Seguros,0,0,0,0,0,0,=SUM(B49:G49)
+Impuestos (IVA ISR),0,0,0,0,0,0,=SUM(B50:G50)
+Gastos Financieros,0,0,0,0,0,0,=SUM(B51:G51)
+Otros Gastos,0,0,0,0,0,0,=SUM(B52:G52)
+TOTAL EGRESOS,=SUM(B42:B52),=SUM(C42:C52),=SUM(D42:D52),=SUM(E42:E52),=SUM(F42:F52),=SUM(G42:G52),=SUM(H42:H52)
+,,,,,,,,
+FLUJO NETO,=B39-B53,=C39-C53,=D39-D53,=E39-E53,=F39-F53,=G39-G53,=H39-H53
+,,,,,,,,
+SALDO INICIAL,=G31,=B56,=C56,=D56,=E56,=F56,
+FLUJO ACUMULADO,=B55+B56,=C55+C56,=D55+D56,=E55+E56,=F55+F56,=G55+G56,
+,,,,,,,,
+RESUMEN ANUAL,,,,,,,,
+TOTAL INGRESOS ANUALES,=H13+H39,,,,,,,
+TOTAL EGRESOS ANUALES,=H27+H53,,,,,,,
+FLUJO NETO ANUAL,=B60-B61,,,,,,,
+SALDO FINAL AÑO,=G57,,,,,,,
+,,,,,,,,
+INDICADORES,,,,,,,,
+Ratio de Liquidez,=B60/B61,,,,,,,
+Promedio Mensual Ingresos,=B60/12,,,,,,,
+Promedio Mensual Egresos,=B61/12,,,,,,,
+,,,,,,,,
+NOTAS Y OBSERVACIONES:,,,,,,,,
+1. Actualizar montos mensuales según presupuesto,,,,,,,,
+2. Revisar proyecciones cada trimestre,,,,,,,,
+3. Considerar estacionalidad del negocio,,,,,,,,
+4. Mantener reserva de efectivo mínima,,,,,,,,
+,,,,,,,,
+Elaborado por: C.P. María Fabiola Calvillo Rocha,,,,,,,,
+Fecha: Agosto 2025,,,,,,,,
