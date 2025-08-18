@@ -809,75 +809,150 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Base de datos de contenido para búsqueda
     const searchData = [
+        // Servicios principales
+        {
+            title: 'Contabilidad y Auditoría',
+            description: 'Captura de pólizas contables, conciliaciones bancarias, ajustes a estados financieros, auditorías internas y externas',
+            type: 'Servicio',
+            url: '#servicios',
+            keywords: 'contabilidad auditoría pólizas conciliaciones bancarias estados financieros auditorías internas externas reportes'
+        },
+        {
+            title: 'Cumplimiento Fiscal y SAT',
+            description: 'Validación de CFDI ante el SAT, revisión de facturas con requisitos fiscales, elaboración de declaraciones',
+            type: 'Servicio',
+            url: '#servicios',
+            keywords: 'cfdi sat fiscal declaraciones facturas validación cumplimiento pagos previsionales normatividad'
+        },
+        {
+            title: 'Nóminas y Recursos Humanos',
+            description: 'Elaboración de nóminas, altas ante IMSS y SUA, gestión de incidencias de RRHH, cálculo de prestaciones',
+            type: 'Servicio',
+            url: '#servicios',
+            keywords: 'nominas imss sua recursos humanos prestaciones altas incidencias empleados'
+        },
+        {
+            title: 'Cobro y Recuperación',
+            description: 'Acciones de cobro persuasivo y coactivo, integración de expedientes PAE, conciliación de pagos',
+            type: 'Servicio',
+            url: '#servicios',
+            keywords: 'cobro coactivo persuasivo profeco pae expedientes recuperación multas conciliación'
+        },
+        {
+            title: 'Administración Gubernamental',
+            description: 'Manejo de plataforma Opergob, control y gestión de presupuestos, participación en licitaciones',
+            type: 'Servicio',
+            url: '#servicios',
+            keywords: 'opergob gobierno presupuestos licitaciones transparencia administración pública reportes'
+        },
+        {
+            title: 'Consultoría Empresarial',
+            description: 'Revisión de cuentas por pagar y cobrar, elaboración de presupuestos, análisis financiero empresarial',
+            type: 'Servicio',
+            url: '#servicios',
+            keywords: 'consultoría empresarial cuentas presupuestos análisis financiero optimización procesos'
+        },
+        // Calculadoras y herramientas
+        {
+            title: 'Calculadora ISR',
+            description: 'Calcula tu Impuesto Sobre la Renta para personas físicas y morales',
+            type: 'Calculadora',
+            url: 'calculadoras/isr.html',
+            keywords: 'isr impuesto sobre la renta calculadora fiscal personas físicas morales anual mensual'
+        },
+        {
+            title: 'Calculadora IVA',
+            description: 'Herramienta para calcular IVA, retenciones y deducciones de productos y servicios',
+            type: 'Calculadora',
+            url: 'calculadoras/iva.html',
+            keywords: 'iva impuesto valor agregado calculadora retenciones deducciones productos servicios'
+        },
+        {
+            title: 'Calculadora de Nómina',
+            description: 'Calcula salarios, deducciones IMSS, ISPT y prestaciones sociales para empleados',
+            type: 'Calculadora',
+            url: 'calculadoras/nomina.html',
+            keywords: 'nomina salarios deducciones imss ispt prestaciones calcular empleados sueldo neto'
+        },
+        // Servicios especializados
         {
             title: 'Servicios para PYMES',
             description: 'Contabilidad integral, declaraciones fiscales, asesoría tributaria para pequeñas y medianas empresas',
             type: 'Servicio',
-            url: '/servicios/pymes.html',
-            keywords: 'pymes contabilidad declaraciones fiscal tributaria empresas'
-        },
-        {
-            title: 'Calculadora ISR',
-            description: 'Calcula tu Impuesto Sobre la Renta para personas físicas y morales',
-            type: 'Herramienta',
-            url: '/calculadoras/isr.html',
-            keywords: 'isr impuesto renta calculadora fiscal personas físicas morales'
-        },
-        {
-            title: 'Calculadora IVA',
-            description: 'Calcula el Impuesto al Valor Agregado para productos y servicios',
-            type: 'Herramienta',
-            url: '/calculadoras/iva.html',
-            keywords: 'iva impuesto valor agregado calculadora productos servicios'
-        },
-        {
-            title: 'Calculadora de Nómina',
-            description: 'Calcula salarios, deducciones IMSS, ISR y neto a recibir',
-            type: 'Herramienta',
-            url: '/calculadoras/nomina.html',
-            keywords: 'nomina salarios deducciones imss calculadora empleados'
-        },
-        {
-            title: 'Recursos y Guías',
-            description: 'Documentos descargables, guías fiscales y herramientas para emprendedores',
-            type: 'Recursos',
-            url: '/recursos/guias.html',
-            keywords: 'recursos guías documentos descargar fiscal emprendedores'
-        },
-        {
-            title: 'Agendar Cita',
-            description: 'Programa una consulta presencial o virtual con C.P. María Fabiola',
-            type: 'Servicio',
-            url: '/citas/agendar.html',
-            keywords: 'cita consulta presencial virtual agendar programar'
+            url: 'servicios/pymes.html',
+            keywords: 'pymes pequeñas medianas empresas contabilidad declaraciones fiscal tributaria integral'
         },
         {
             title: 'PROFECO - Cobro Coactivo',
             description: 'Experiencia especializada en cobro persuasivo y coactivo de multas administrativas',
             type: 'Experiencia',
             url: '#sobre-mi',
-            keywords: 'profeco cobro coactivo persuasivo multas administrativas'
+            keywords: 'profeco cobro coactivo persuasivo multas administrativas experiencia especializada'
+        },
+        // Información profesional
+        {
+            title: 'Sobre Mí - María Fabiola Calvillo',
+            description: 'Contadora Pública con 19 años de experiencia en PROFECO, administración pública y empresas privadas',
+            type: 'Información',
+            url: '#sobre-mi',
+            keywords: 'sobre mi fabiola calvillo contador experiencia profeco administración pública empresas'
         },
         {
-            title: 'Auditorías',
-            description: 'Auditorías internas y externas, revisión de estados financieros',
-            type: 'Servicio',
-            url: '#servicios',
-            keywords: 'auditorías internas externas estados financieros revisión'
+            title: 'Experiencia Profesional',
+            description: 'Trayectoria en PROFECO, DIF León, empresas privadas y despachos contables especializados',
+            type: 'Información',
+            url: '#formacion',
+            keywords: 'experiencia trayectoria profeco dif león empresas privadas despachos contables'
         },
         {
-            title: 'Nóminas IMSS',
-            description: 'Procesamiento de nóminas, altas IMSS, sistema SUA',
-            type: 'Servicio',
-            url: '#servicios',
-            keywords: 'nóminas imss sua altas procesamiento empleados'
+            title: 'Competencias Técnicas',
+            description: 'Especialización en software contable, sistemas gubernamentales, auditorías y gestión administrativa',
+            type: 'Información',
+            url: '#competencias',
+            keywords: 'competencias técnicas software contable sistemas gubernamentales auditorías gestión'
         },
         {
-            title: 'CFDI Validación',
-            description: 'Validación de CFDI ante SAT, manejo de facturación electrónica',
+            title: 'Testimonios de Clientes',
+            description: 'Opiniones y experiencias de clientes satisfechos con los servicios contables profesionales',
+            type: 'Información',
+            url: '#testimonios',
+            keywords: 'testimonios clientes opiniones experiencias satisfechos servicios contables'
+        },
+        {
+            title: 'Preguntas Frecuentes (FAQ)',
+            description: 'Respuestas a las dudas más comunes sobre servicios contables, fiscales y administrativos',
+            type: 'Información',
+            url: '#faq',
+            keywords: 'faq preguntas frecuentes dudas servicios contables fiscales administrativos'
+        },
+        {
+            title: 'Contacto y Ubicación',
+            description: 'WhatsApp, teléfono, email y ubicación en León, Guanajuato para consultas profesionales',
+            type: 'Contacto',
+            url: '#contacto',
+            keywords: 'contacto whatsapp teléfono email león guanajuato ubicación consultas'
+        },
+        // Recursos adicionales
+        {
+            title: 'Descargar CV Profesional',
+            description: 'Curriculum Vitae completo de María Fabiola Calvillo Rocha con experiencia detallada',
+            type: 'Recurso',
+            url: 'recursos/cv.html',
+            keywords: 'cv curriculum vitae experiencia profesional descargar fabiola calvillo'
+        },
+        {
+            title: 'Guías Contables y Fiscales',
+            description: 'Recursos descargables, guías fiscales actualizadas y herramientas para emprendedores',
+            type: 'Recurso',
+            url: 'recursos/guias.html',
+            keywords: 'guías recursos contables fiscales descargar emprendedores herramientas'
+        },
+        {
+            title: 'Agendar Cita de Consulta',
+            description: 'Programa una consulta personalizada presencial o virtual para servicios contables',
             type: 'Servicio',
-            url: '#servicios',
-            keywords: 'cfdi validación sat facturación electrónica'
+            url: 'citas/agendar.html',
+            keywords: 'cita consulta personalizada presencial virtual agendar programar servicios'
         }
     ];
     
@@ -895,7 +970,7 @@ document.addEventListener('DOMContentLoaded', function() {
         searchModal.style.display = 'none';
         document.body.style.overflow = 'auto';
         searchInput.value = '';
-        searchResults.innerHTML = '<p class="search-hint">Busca servicios contables, calculadoras fiscales, información profesional...</p>';
+        searchResults.innerHTML = '<p class="search-hint">Busca servicios como: contabilidad, auditoría, nóminas, CFDI, calculadoras ISR/IVA, PROFECO, consultoría...</p>';
     }
     
     if (searchClose) {
@@ -936,7 +1011,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 searchResults.innerHTML = `
                     <div class="search-no-results">
                         <p>No se encontraron resultados para "<strong>${query}</strong>"</p>
-                        <p class="search-hint">Intenta con otros términos como: servicios, calculadoras, PROFECO, auditorías, nóminas</p>
+                        <p class="search-hint">Intenta buscar: <strong>contabilidad</strong>, <strong>auditoría</strong>, <strong>nóminas</strong>, <strong>CFDI</strong>, <strong>calculadora ISR</strong>, <strong>PROFECO</strong>, <strong>consultoría</strong>, <strong>PYMES</strong></p>
+                        <div class="search-suggestions">
+                            <h4>Sugerencias populares:</h4>
+                            <button onclick="document.getElementById('search-input').value='calculadora'; document.getElementById('search-input').dispatchEvent(new Event('input'));" class="search-suggestion-btn">Calculadoras</button>
+                            <button onclick="document.getElementById('search-input').value='contabilidad'; document.getElementById('search-input').dispatchEvent(new Event('input'));" class="search-suggestion-btn">Contabilidad</button>
+                            <button onclick="document.getElementById('search-input').value='PROFECO'; document.getElementById('search-input').dispatchEvent(new Event('input'));" class="search-suggestion-btn">PROFECO</button>
+                            <button onclick="document.getElementById('search-input').value='nóminas'; document.getElementById('search-input').dispatchEvent(new Event('input'));" class="search-suggestion-btn">Nóminas</button>
+                        </div>
                     </div>
                 `;
                 return;
