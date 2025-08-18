@@ -13,16 +13,89 @@
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
-                <h2>María Fabiola Calvillo Rocha</h2>
-                <span>Contadora Pública</span>
-            </div>
-            <div class="nav-back">
-                <a href="../index.html" class="btn-secondary">
-                    <i class="fas fa-arrow-left"></i> Volver al inicio
+                <a href="../index.html" style="text-decoration: none; color: inherit;">
+                    <h2>C.P. María Fabiola Calvillo Rocha</h2>
+                    <span>Contadora Pública</span>
                 </a>
             </div>
+            
+            <!-- Navegación principal -->
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html#inicio">Inicio</a></li>
+                <li><a href="../index.html#sobre-mi">Sobre Mí</a></li>
+                <li><a href="../index.html#formacion">Experiencia</a></li>
+                <li class="nav-dropdown">
+                    <a href="../index.html#servicios" class="nav-dropdown-toggle">
+                        Servicios <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="../servicios/pymes.html">PYMES</a></li>
+                        <li><a href="../index.html#servicios">Contabilidad</a></li>
+                        <li><a href="../index.html#servicios">Auditoría</a></li>
+                        <li><a href="../index.html#servicios">Nóminas</a></li>
+                        <li><a href="../index.html#servicios">CFDI/SAT</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-toggle">
+                        Calculadoras <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="isr.html" class="active">ISR</a></li>
+                        <li><a href="iva.html">IVA</a></li>
+                        <li><a href="nomina.html">Nómina</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-toggle">
+                        Recursos <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="../recursos/cv.html">Descargar CV</a></li>
+                        <li><a href="../recursos/guias.html">Guías Contables</a></li>
+                        <li><a href="../citas/agendar.html">Agendar Cita</a></li>
+                    </ul>
+                </li>
+                <li><a href="../index.html#testimonios">Testimonios</a></li>
+                <li><a href="../index.html#faq">FAQ</a></li>
+                <li><a href="../index.html#contacto">Contacto</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button id="search-toggle" class="search-btn" title="Buscar contenido" aria-label="Buscar en el sitio">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Menú de navegación móvil" aria-expanded="false" aria-controls="nav-menu">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </div>
         </nav>
+        <div class="nav-backdrop" id="nav-backdrop" onclick="closeMobileMenu()"></div>
     </header>
+    
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs">
+        <div class="container">
+            <div class="breadcrumb-item">
+                <a href="../index.html">
+                    <i class="fas fa-home"></i> Inicio
+                </a>
+            </div>
+            <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+            <div class="breadcrumb-item">
+                <a href="../index.html#calculadoras">Calculadoras</a>
+            </div>
+            <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+            <div class="breadcrumb-item active">
+                Calculadora ISR
+            </div>
+        </div>
+    </nav>
 
     <main style="padding-top: 100px;">
         <section class="section">

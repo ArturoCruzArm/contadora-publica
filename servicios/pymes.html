@@ -13,16 +13,89 @@
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
-                <h2>María Fabiola Calvillo Rocha</h2>
-                <span>Contadora Pública</span>
-            </div>
-            <div class="nav-back">
-                <a href="../index.html#servicios" class="btn-secondary">
-                    <i class="fas fa-arrow-left"></i> Volver al inicio
+                <a href="../index.html" style="text-decoration: none; color: inherit;">
+                    <h2>C.P. María Fabiola Calvillo Rocha</h2>
+                    <span>Contadora Pública</span>
                 </a>
             </div>
+            
+            <!-- Navegación principal -->
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html#inicio">Inicio</a></li>
+                <li><a href="../index.html#sobre-mi">Sobre Mí</a></li>
+                <li><a href="../index.html#formacion">Experiencia</a></li>
+                <li class="nav-dropdown">
+                    <a href="../index.html#servicios" class="nav-dropdown-toggle">
+                        Servicios <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="pymes.html" class="active">PYMES</a></li>
+                        <li><a href="../index.html#servicios">Contabilidad</a></li>
+                        <li><a href="../index.html#servicios">Auditoría</a></li>
+                        <li><a href="../index.html#servicios">Nóminas</a></li>
+                        <li><a href="../index.html#servicios">CFDI/SAT</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-toggle">
+                        Calculadoras <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="../calculadoras/isr.html">ISR</a></li>
+                        <li><a href="../calculadoras/iva.html">IVA</a></li>
+                        <li><a href="../calculadoras/nomina.html">Nómina</a></li>
+                    </ul>
+                </li>
+                <li class="nav-dropdown">
+                    <a href="#" class="nav-dropdown-toggle">
+                        Recursos <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="../recursos/cv.html">Descargar CV</a></li>
+                        <li><a href="../recursos/guias.html">Guías Contables</a></li>
+                        <li><a href="../citas/agendar.html">Agendar Cita</a></li>
+                    </ul>
+                </li>
+                <li><a href="../index.html#testimonios">Testimonios</a></li>
+                <li><a href="../index.html#faq">FAQ</a></li>
+                <li><a href="../index.html#contacto">Contacto</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button id="search-toggle" class="search-btn" title="Buscar contenido" aria-label="Buscar en el sitio">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Menú de navegación móvil" aria-expanded="false" aria-controls="nav-menu">
+                    <div class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </button>
+            </div>
         </nav>
+        <div class="nav-backdrop" id="nav-backdrop" onclick="closeMobileMenu()"></div>
     </header>
+    
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs">
+        <div class="container">
+            <div class="breadcrumb-item">
+                <a href="../index.html">
+                    <i class="fas fa-home"></i> Inicio
+                </a>
+            </div>
+            <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+            <div class="breadcrumb-item">
+                <a href="../index.html#servicios">Servicios</a>
+            </div>
+            <span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+            <div class="breadcrumb-item active">
+                PYMES
+            </div>
+        </div>
+    </nav>
 
     <main style="padding-top: 100px;">
         <section class="section">
@@ -144,6 +217,71 @@
                 </div>
             </div>
         </section>
+        
+        <!-- Navegación entre páginas -->
+        <div class="page-navigation">
+            <div class="container">
+                <a href="../index.html#servicios" class="page-nav-item prev">
+                    <i class="fas fa-arrow-left"></i>
+                    <div class="page-nav-content">
+                        <div class="page-nav-label">Anterior</div>
+                        <div class="page-nav-title">Todos los Servicios</div>
+                    </div>
+                </a>
+                
+                <a href="../calculadoras/isr.html" class="page-nav-item next">
+                    <div class="page-nav-content">
+                        <div class="page-nav-label">Siguiente</div>
+                        <div class="page-nav-title">Calculadora ISR</div>
+                    </div>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Páginas relacionadas -->
+        <section class="related-pages">
+            <div class="container">
+                <h3>Recursos Relacionados</h3>
+                <div class="related-grid">
+                    <a href="../calculadoras/isr.html" class="related-item">
+                        <h4><i class="fas fa-calculator"></i> Calculadora ISR</h4>
+                        <p>Calcula tu Impuesto Sobre la Renta para personas físicas y morales con nuestra herramienta especializada.</p>
+                        <span class="btn-small">Calcular ISR</span>
+                    </a>
+                    
+                    <a href="../calculadoras/iva.html" class="related-item">
+                        <h4><i class="fas fa-percentage"></i> Calculadora IVA</h4>
+                        <p>Herramienta para calcular IVA, retenciones y deducciones de productos y servicios.</p>
+                        <span class="btn-small">Calcular IVA</span>
+                    </a>
+                    
+                    <a href="../calculadoras/nomina.html" class="related-item">
+                        <h4><i class="fas fa-users"></i> Calculadora Nómina</h4>
+                        <p>Calcula salarios, deducciones IMSS, ISPT y prestaciones sociales para empleados.</p>
+                        <span class="btn-small">Calcular Nómina</span>
+                    </a>
+                    
+                    <a href="../recursos/guias.html" class="related-item">
+                        <h4><i class="fas fa-book"></i> Guías Contables</h4>
+                        <p>Recursos descargables y guías fiscales actualizadas para emprendedores y empresarios.</p>
+                        <span class="btn-small">Ver Guías</span>
+                    </a>
+                    
+                    <a href="../citas/agendar.html" class="related-item">
+                        <h4><i class="fas fa-calendar-check"></i> Agendar Consulta</h4>
+                        <p>Programa una consulta personalizada presencial o virtual para servicios contables especializados.</p>
+                        <span class="btn-small">Agendar Cita</span>
+                    </a>
+                    
+                    <a href="../index.html#testimonios" class="related-item">
+                        <h4><i class="fas fa-star"></i> Testimonios</h4>
+                        <p>Lee las experiencias de otros clientes PYME que han confiado en nuestros servicios contables.</p>
+                        <span class="btn-small">Ver Testimonios</span>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -153,5 +291,29 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Modal de Búsqueda -->
+    <div id="search-modal" class="search-modal">
+        <div class="search-modal-content">
+            <div class="search-header">
+                <h3>Buscar en el sitio</h3>
+                <button class="search-close">&times;</button>
+            </div>
+            <div class="search-input-container">
+                <input type="text" id="search-input" placeholder="Buscar servicios, calculadoras, información...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <div id="search-results" class="search-results">
+                <p class="search-hint">Busca servicios como: contabilidad, auditoría, nóminas, CFDI, calculadoras ISR/IVA, PROFECO, consultoría...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón scroll to top -->
+    <button id="scrollTopBtn" class="scroll-top-btn" onclick="scrollToTop()" title="Volver arriba" aria-label="Volver al inicio">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="../script.js"></script>
 </body>
 </html>

@@ -3361,6 +3361,305 @@ p {
 }
 
 /* ================================
+   NAVIGATION DROPDOWNS
+   ================================ */
+
+/* Dropdown navigation styles */
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.nav-dropdown-toggle i {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover .nav-dropdown-toggle i {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-hover);
+    min-width: 200px;
+    padding: 0.5rem 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1100;
+    list-style: none;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-dropdown-menu li {
+    margin: 0;
+}
+
+.nav-dropdown-menu a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: var(--transition);
+    border-radius: 0;
+}
+
+.nav-dropdown-menu a:hover,
+.nav-dropdown-menu a:focus {
+    background: var(--accent-color);
+    color: white;
+}
+
+/* Mobile dropdown styles */
+@media (max-width: 768px) {
+    .nav-dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        background: var(--background-alt);
+        margin: 0.5rem 0;
+        border-radius: var(--border-radius);
+    }
+    
+    .nav-dropdown-toggle i {
+        display: none;
+    }
+    
+    .nav-dropdown-menu a {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        background: var(--background-color);
+        margin: 0.25rem;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--border-color);
+    }
+}
+
+/* ================================
+   BREADCRUMBS
+   ================================ */
+
+.breadcrumbs {
+    background: var(--background-alt);
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.breadcrumbs .container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.breadcrumb-item a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.breadcrumb-item a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.breadcrumb-separator {
+    color: var(--text-light);
+    font-size: 0.8rem;
+}
+
+/* Mobile breadcrumbs */
+@media (max-width: 768px) {
+    .breadcrumbs {
+        padding: 0.75rem 0;
+    }
+    
+    .breadcrumbs .container {
+        font-size: 0.8rem;
+        flex-wrap: wrap;
+    }
+    
+    .breadcrumb-item {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+/* ================================
+   PAGE NAVIGATION
+   ================================ */
+
+.page-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 3rem;
+}
+
+.page-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 1rem 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    min-width: 200px;
+}
+
+.page-nav-item:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.page-nav-item.prev {
+    justify-content: flex-start;
+}
+
+.page-nav-item.next {
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+.page-nav-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.page-nav-label {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.page-nav-title {
+    font-weight: 600;
+}
+
+/* Mobile page navigation */
+@media (max-width: 768px) {
+    .page-navigation {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .page-nav-item {
+        width: 100%;
+        min-width: auto;
+        justify-content: center;
+    }
+    
+    .page-nav-item.next {
+        margin-left: 0;
+    }
+}
+
+/* ================================
+   RELATED PAGES
+   ================================ */
+
+.related-pages {
+    background: var(--background-alt);
+    padding: 3rem 0;
+    margin-top: 3rem;
+}
+
+.related-pages h3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.related-item {
+    background: var(--background-color);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.related-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent-color);
+}
+
+.related-item h4 {
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.related-item p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.related-item .btn-small {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    background: var(--accent-color);
+    color: white;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    display: inline-block;
+    transition: var(--transition);
+}
+
+.related-item .btn-small:hover {
+    background: var(--primary-color);
+}
+
+/* ================================
    ACCESSIBILITY IMPROVEMENTS
    ================================ */
 
