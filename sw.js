@@ -209,4 +209,4 @@ function openDB() {
 
 console.log('✅ Service Worker cargado - Sitio de María Fabiola Calvillo Rocha');
 console.log('📍 Contadora Pública en León, Guanajuato');
-console.log('📞 Tel: 477 498 0061 | WhatsApp: 477 386 8927');
+console.log('📞 Tel y WhatsApp: 477 498 0061');

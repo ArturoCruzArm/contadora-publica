@@ -49,11 +49,11 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     submitButton.disabled = true;
     
     // Mostrar mensaje de contacto por WhatsApp en lugar de formulario roto
-    showNotification('Por favor, contacte directamente por WhatsApp para una respuesta más rápida: 477 386 8927', 'info');
+    showNotification('Por favor, contacte directamente por WhatsApp para una respuesta más rápida: 477 498 0061', 'info');
     
     // Redirigir a WhatsApp con mensaje preformateado incluyendo RFC
     const whatsappMessage = `Hola C.P. María Fabiola, me interesa contactar para: ${data.servicio || 'servicios contables'}. Mi nombre es ${data.nombre}, mi email es ${data.email}. ${data.mensaje}. Puedes responderme también a: calvillofabiola19@gmail.com`;
-    const whatsappURL = `https://wa.me/524773868927?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappURL = `https://wa.me/524774980061?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappURL, '_blank');
     
     this.reset();
@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Crear botones flotantes de contacto rápido
     const quickContactHTML = `
         <div class="quick-contact">
-            <a href="https://wa.me/524773868927" class="whatsapp-btn" target="_blank" title="Contactar por WhatsApp">
+            <a href="https://wa.me/524774980061" class="whatsapp-btn" target="_blank" rel="noopener" title="Contactar por WhatsApp">
                 <i class="fab fa-whatsapp"></i>
             </a>
             <a href="tel:+524774980061" class="phone-btn" title="Llamar">
@@ -892,7 +892,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Información profesional
         {
             title: 'Sobre Mí - María Fabiola Calvillo',
-            description: 'Contadora Pública con 19 años de experiencia en PROFECO, administración pública y empresas privadas',
+            description: 'Contadora pública con experiencia en PROFECO, administración pública y empresas privadas',
             type: 'Información',
             url: '#sobre-mi',
             keywords: 'sobre mi fabiola calvillo contador experiencia profeco administración pública empresas'
